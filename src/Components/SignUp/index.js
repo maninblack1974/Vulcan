@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export default class SignUp extends Component {
     render() {
         return (
+            <div>
             <form>
                 <h3>Sign Up</h3>
 
@@ -31,6 +32,11 @@ export default class SignUp extends Component {
                     Already registered <a href="#">sign in?</a>
                 </p>
             </form>
+            <p>
+                OR
+            </p>
+            <div class="g-signin2" data-onsuccess="onSignIn">Sign in using Google, yo!</div>
+        </div>
         );
     }
 }
