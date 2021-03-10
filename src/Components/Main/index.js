@@ -1,3 +1,4 @@
+
 function Main() {
     return (
         <main class="px-3">
@@ -13,7 +14,8 @@ function Main() {
         </button>
       </div>
     </form>
-      </main>
+    
+    </main>
     )
   }
   
