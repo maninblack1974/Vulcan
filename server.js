@@ -5,6 +5,8 @@ const app = express();
 
 const db = require('./models');
 
+const path = require("path");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

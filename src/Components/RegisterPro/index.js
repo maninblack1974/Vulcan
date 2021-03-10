@@ -33,7 +33,6 @@ export default class RegisterPro extends Component {
             <input type="text"/>
             <button>Add Service Pro</button>
             </div>
-            
         );
     }
 }
