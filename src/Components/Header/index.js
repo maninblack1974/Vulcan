@@ -9,6 +9,7 @@ function Header() {
         <nav class="my-2 my-md-0 me-md-3">
           <Link className="btn btn-outline-primary" to="/sign-up">Sign-Up</Link>
           <Link className="btn btn-outline-primary" to="/sign-in">Login</Link>
+          <Link className="btn btn-outline-primary" to="/RegisterPro">Register Pro</Link>
         </nav>
       </header>
     )
