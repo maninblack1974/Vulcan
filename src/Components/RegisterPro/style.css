@@ -1,23 +1,207 @@
-.serviceProInfo {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  
+.loan-form {
+  background-color: #292929fc;
+  padding: 50px 0 150px 0;
+  color: #ffffff;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  .loan-form {
+    padding: 150px 0 400px 0;
   }
-  
+}
+.loan-form .form-fields {
+  max-width: 1440px;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+}
+@media (min-width: 992px) {
+  .loan-form .form-fields {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1200px) {
+  .loan-form .form-fields {
+    padding: 0 150px;
+    flex-direction: row;
+  }
+}
+.loan-form .form-fields .form-container {
+  list-style: none;
+  padding: 0 16px;
+  margin: auto;
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+@media (min-width: 992px) {
+  .loan-form .form-fields .form-container {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+.loan-form .form-fields .form-container .form-list-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.loan-form .form-fields .form-container .form-list-item label {
+  margin: 0 0 4px 0;
+  font-family: "Lato";
+}
+.loan-form .form-fields .form-container .form-list-item input,
+.loan-form .form-fields .form-container .form-list-item select {
+  background-color: #292929fc;
+  border: 2px solid #ffffff69;
+  padding: 8px;
+  color: #ffffff;
+}
+.loan-form .form-fields .form-container .form-list-item.form-extended {
+  flex-direction: row;
+  align-items: center;
+}
+.loan-form
+  .form-fields
+  .form-container
+  .form-list-item.form-extended
+  .form-sub-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+#first_name,
+#last_name {
+  max-width: 100%;
+}
+@media (min-width: 992px) {
+  #first_name,
+  #last_name {
+    max-width: 300px;
+  }
+}
+#street,
+#city,
+#ssn,
+#pre_tax_income {
+  max-width: 100%;
+}
+@media (min-width: 992px) {
+  #street,
+  #city,
+  #ssn,
+  #pre_tax_income {
+    max-width: 400px;
+  }
+}
+#state {
+  margin-right: 10px;
+  max-width: 100%;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  #state {
+    max-width: 200px;
+    width: unset;
+  }
+}
+#zip_code {
+  margin-left: 10px;
+  max-width: 100%;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  #zip_code {
+    max-width: 200px;
+    width: unset;
+  }
+}
+.loan-form .form-fields .form-container .form-list-item .form-zip-label {
+  margin-left: 10px;
+}
+.loan-form .form-fields .form-container .form-list-item .form-phone-container {
+  display: flex;
+  align-items: center;
+}
+.loan-form
+  .form-fields
+  .form-container
+  .form-list-item
+  .form-phone-container
+  span {
+  opacity: 50%;
+  font-size: 32px;
+  font-family: "Lato";
+}
+.loan-form
+  .form-fields
+  .form-container
+  .form-list-item
+  .form-phone-container
   input {
-    width: 300px;
-    height: 50px;
-    font-size: 20px;
-    padding-left: 10px;
-    margin: 5px;
-  
+  text-align: center;
+  max-width: 100px;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .loan-form
+    .form-fields
+    .form-container
+    .form-list-item
+    .form-phone-container
+    input {
+    width: unset;
   }
-  
-   button {
-    width: 320px;
-    height: 50px;
-    margin-top: 15px;
-  } 
+}
+.loan-form .form-fields .form-container .form-list-item .form-dob-container {
+  display: flex;
+}
+.loan-form
+  .form-fields
+  .form-container
+  .form-list-item
+  .form-dob-container
+  select {
+  display: flex;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .loan-form
+    .form-fields
+    .form-container
+    .form-list-item
+    .form-dob-container
+    select {
+    width: unset;
+  }
+}
+#day {
+  margin: 0 16px;
+}
+.loan-form .submit-btn-container {
+  max-width: 1440px;
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+.loan-form .form-fields .form-container .form-list-item .form-submit-btn {
+  border: none;
+  width: 200px;
+  background-color: #009acc;
+  margin-top: 24px;
+  padding: 10px;
+}
+.loan-form .disclaimer {
+  color: #ffffff69;
+  max-width: 1145px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+.loan-form .success-message {
+  font-family: "Lato";
+  color: lightgreen;
+  position: absolute;
+  bottom: -16px;
+}
+[disabled] input,
+[disabled] select {
+  opacity: 50%;
+}

@@ -23,6 +23,10 @@ app.get("/", function(req, res) {
 
 // require("./routes/serviceProRoutes")(app);
 
-db.sequelize.sync({ force: true }).then(() => {
-  app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
+db.sequelize.sync().then(function () {
+  app.listen(PORT, function () {
+    console.log(
+      `==> 🌎  Listening on port ${PORT}. Visit http://localhost:${PORT}/ in your browser.`
+    );
+  });
 });

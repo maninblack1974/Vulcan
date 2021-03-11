@@ -27,6 +27,9 @@ module.exports = (sequelize, DataTypes) => {
         servicePro_zipCode: {
             type: DataTypes.STRING
         },
+        servicePro_phoneNumber: {
+            type: DataTypes.STRING
+        },
         servicePro_email: {
             type: DataTypes.STRING
         },
