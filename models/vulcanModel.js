@@ -8,13 +8,19 @@ module.exports = (sequelize, DataTypes) => {
         servicePro_lastName: {
             type: DataTypes.STRING
         },
+        servicePro_email: {
+            type: DataTypes.STRING
+        },
+        servicePro_userPassword: {
+            type: DataTypes.STRING
+        },
         servicePro_companyName: {
             type: DataTypes.STRING
         },
-        servicePro_category: {
+        servicePro_url: {
             type: DataTypes.STRING
         },
-        servicePro_workDescription: {
+        servicePro_category: {
             type: DataTypes.STRING
         },
         servicePro_address: {
@@ -24,25 +30,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         servicePro_state: {
-            type: DataTypes.STRING
-        },
-        servicePro_zipCode: {
-            type: DataTypes.STRING
-        },
-        servicePro_email: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-            isEmail: true
-            }
-        },
-        servicePro_userPassword: {
+            },
+        servicePro_zipCode: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        servicePro_url: {
-            type: DataTypes.STRING
         }
         // servicePro_profileImg: {
         //     type: DataTypes.BLOB

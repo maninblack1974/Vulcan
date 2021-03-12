@@ -12,12 +12,12 @@ export default class RegisterPro extends Component {
       servicePro_email: "",
       servicePro_userPassword: "",
       servicePro_companyName: "",
+      servicePro_url: "",
       servicePro_category: "",
       servicePro_address: "",
       servicePro_city: "",
       servicePro_state: "",
       servicePro_zipCode: "",
-      servicePro_url: "",
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -35,12 +35,30 @@ export default class RegisterPro extends Component {
     event.preventDefault();
     const {
       servicePro_firstName,
-      servicePro_lastName
+      servicePro_lastName,
+      servicePro_email,
+      servicePro_userPassword,
+      servicePro_companyName,
+      servicePro_url,
+      servicePro_category,
+      servicePro_address,
+      servicePro_city,
+      servicePro_state,
+      servicePro_zipCode,
 
     } = this.state;
     const formData = {
       "servicePro_firstName": servicePro_firstName,
-      "servicePro_lastName": servicePro_lastName
+      "servicePro_lastName": servicePro_lastName,
+      "servicePro_email": servicePro_email,
+      "servicePro_userPassword": servicePro_userPassword,
+      "servicePro_companyName": servicePro_companyName,
+      "servicePro_url": servicePro_url,
+      "servicePro_category": servicePro_category,
+      "servicePro_address": servicePro_address,
+      "servicePro_city": servicePro_city,
+      "servicePro_state": servicePro_state,
+      "servicePro_zipCode": servicePro_zipCode,
     };
 
 
@@ -146,12 +164,11 @@ export default class RegisterPro extends Component {
               />
             </li>
             <li className="form-list-item">
-            
-              <label htmlFor="servicePro_lastName">CATEGORY</label>
+              <label htmlFor="servicePro_category">CATEGORY</label>
               <select
                     type="text"
-                    id="servicePro_state"
-                    name="ServicePro_state"
+                    id="servicePro_category"
+                    name="ServicePro_category"
                     onChange={this.handleInputChange}
                   >
                     <option defaultValue="">Choose...</option>
@@ -171,6 +188,7 @@ export default class RegisterPro extends Component {
                     <option value="ID">Window Repair</option>
                     <option value="ID">Table Booth Repair</option>
                   </select>
+                  </li>
               <li className="form-list-item">
               <label htmlFor="servicePro_address">ADDRESS</label>
               <input
@@ -180,6 +198,7 @@ export default class RegisterPro extends Component {
                 placeholder="Address"
                 onChange={this.handleInputChange}
               />
+              </li>
               <li className="form-list-item">
               <label htmlFor="servicePro_city">City</label>
               <input
@@ -189,8 +208,8 @@ export default class RegisterPro extends Component {
                 placeholder="City"
                 onChange={this.handleInputChange}
               />
-              <li className="form-list-item form-extended">
-                <div className="form-sub-container">
+              </li>
+                <li className="form-list-item">
                   <label htmlFor="servicePro_state">STATE</label>
                   <select
                     type="text"
@@ -251,8 +270,8 @@ export default class RegisterPro extends Component {
                     <option value="WI">Wisconsin</option>
                     <option value="WY">Wyoming</option>
                   </select>
-                </div>
-                <div className="form-sub-container">
+                </li>
+              <li className="form-list-item">
                   <label className="form-zip-label" htmlFor="servicePro_zipCode">
                     ZIP
                   </label>
@@ -263,11 +282,7 @@ export default class RegisterPro extends Component {
                     placeholder="Zip"
                     onChange={this.handleInputChange}
                   />
-                </div>
-              </li>
-            </li>
-            </li>
-            </li>
+                </li>
             <li className="form-list-item">
               <input
                 className="form-submit-btn"
