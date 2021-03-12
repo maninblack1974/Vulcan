@@ -1,7 +1,7 @@
 
 function Main() {
     return (
-        <main class="px-3">
+        <main className="px-3">
         <h1>Find a service provider.</h1>
         <form className="search">
       <div className="form-group">

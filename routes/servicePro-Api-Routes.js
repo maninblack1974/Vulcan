@@ -1,13 +1,27 @@
-const db = require('../models');
+const router = require("express").Router();
+var db = require("../models");
+const { Op } = require("sequelize");
 
-// Routes
-// =============================================================
-module.exports = (app) => {
-  // GET route for getting all of the service pros
-  app.get('/api/servicePro/', (req, res) => {
-    db.vulcan.findAll({}).then((dbServicePro) => res.json(dbServicePro));
+router.get("/registerpros", (req, res) => {
+  db.servicePro
+    .findAll({})
+    .then((applications) => res.json(applications))
+    .catch((err) => res.status(500).json(err));
+});
+
+router.post("/registerpros", (req, res) => {
+    console.log("Post Triggered", req.body);
+    db.servicePro
+      .create(req.body)
+      .then(() =>
+        res.json({
+          success: true,
+        })
+      )
+      .catch((err) => res.status(500).json(err));
   });
 
+  module.exports = router;
   // Get route for returning posts of a specific category
   // app.get('/api/posts/category/:category', (req, res) => {
   //   db.Post.findAll({
@@ -55,4 +69,3 @@ module.exports = (app) => {
   //     },
   //   }).then((dbPost) => res.json(dbPost));
   // });
-};
