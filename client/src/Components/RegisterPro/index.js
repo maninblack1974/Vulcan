@@ -11,6 +11,13 @@ export default class RegisterPro extends Component {
       servicePro_lastname: "",
       servicePro_email: "",
       servicePro_userPassword: "",
+      servicePro_companyName: "",
+      servicePro_category: "",
+      servicePro_address: "",
+      servicePro_city: "",
+      servicePro_state: "",
+      servicePro_zipCode: "",
+      servicePro_url: "",
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -93,10 +100,173 @@ export default class RegisterPro extends Component {
               <input
                 type="text"
                 id="servicePro_lastName"
-                name="lservicePro_lastName"
+                name="servicePro_lastName"
                 placeholder="Last Name"
                 onChange={this.handleInputChange}
               />
+            </li>
+            <li className="form-list-item">
+              <label htmlFor="servicePro_email">EMAIL</label>
+              <input
+                type="text"
+                id="servicePro_email"
+                name="lservicePro_email"
+                placeholder="Email"
+                onChange={this.handleInputChange}
+              />
+            </li>
+            <li className="form-list-item">
+              <label htmlFor="servicePro_userPassword">PASSWORD</label>
+              <input
+                type="text"
+                id="servicePro_userPassword"
+                name="servicePro_userPassword"
+                placeholder="Password"
+                onChange={this.handleInputChange}
+              />
+            </li>
+            <li className="form-list-item">
+              <label htmlFor="servicePro_companyName">COMPANY NAME</label>
+              <input
+                type="text"
+                id="servicePro_companyName"
+                name="servicePro_companyName"
+                placeholder="Company Name"
+                onChange={this.handleInputChange}
+              />
+            </li>
+            <li className="form-list-item">
+              <label htmlFor="servicePro_url">WEBSITE</label>
+              <input
+                type="text"
+                id="servicePro_url"
+                name="servicePro_url"
+                placeholder="Website"
+                onChange={this.handleInputChange}
+              />
+            </li>
+            <li className="form-list-item">
+            
+              <label htmlFor="servicePro_lastName">CATEGORY</label>
+              <select
+                    type="text"
+                    id="servicePro_state"
+                    name="ServicePro_state"
+                    onChange={this.handleInputChange}
+                  >
+                    <option defaultValue="">Choose...</option>
+                    <option value="AL">Apparel</option>
+                    <option value="AK">Bar/Beer Cleaning</option>
+                    <option value="AZ">Electrican</option>
+                    <option value="AR">General Cleaning</option>
+                    <option value="CA">HVAC</option>
+                    <option value="CO">Food Distributor</option>
+                    <option value="CT">Alcohol Distributor</option>
+                    <option value="DE">Hood Cleaning</option>
+                    <option value="DC">Plumber</option>
+                    <option value="FL">Refrigeration</option>
+                    <option value="GA">Outdoor Heating</option>
+                    <option value="HI">Linens</option>
+                    <option value="ID">Pest Control</option>
+                    <option value="ID">Window Repair</option>
+                    <option value="ID">Table Booth Repair</option>
+                  </select>
+              <li className="form-list-item">
+              <label htmlFor="servicePro_address">ADDRESS</label>
+              <input
+                type="text"
+                id="servicePro_address"
+                name="servicePro_address"
+                placeholder="Address"
+                onChange={this.handleInputChange}
+              />
+              <li className="form-list-item">
+              <label htmlFor="servicePro_city">City</label>
+              <input
+                type="text"
+                id="servicePro_city"
+                name="servicePro_city"
+                placeholder="City"
+                onChange={this.handleInputChange}
+              />
+              <li className="form-list-item form-extended">
+                <div className="form-sub-container">
+                  <label htmlFor="servicePro_state">STATE</label>
+                  <select
+                    type="text"
+                    id="servicePro_state"
+                    name="ServicePro_state"
+                    onChange={this.handleInputChange}
+                  >
+                    <option defaultValue="">Choose...</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                  </select>
+                </div>
+                <div className="form-sub-container">
+                  <label className="form-zip-label" htmlFor="servicePro_zipCode">
+                    ZIP
+                  </label>
+                  <input
+                    type="text"
+                    id="servicePro_zipCode"
+                    name="servicePro_zipCode"
+                    placeholder="Zip"
+                    onChange={this.handleInputChange}
+                  />
+                </div>
+              </li>
+            </li>
+            </li>
             </li>
             <li className="form-list-item">
               <input
