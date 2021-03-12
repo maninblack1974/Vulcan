@@ -35,7 +35,7 @@ export default class SignUp extends Component {
             <p>
                 OR
             </p>
-            <div class="g-signin2" data-onsuccess="onSignIn">Sign in using Google, yo!</div>
+            <div className="g-signin2" data-onsuccess="onSignIn">Sign in using Google, yo!</div>
         </div>
         );
     }
