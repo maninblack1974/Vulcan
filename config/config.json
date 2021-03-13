@@ -3,6 +3,7 @@ require("dotenv").config();
 const { DB_HOST, DB_USER, DB_PASS } = process.env;
 
 {
+
     "development": {
       "username": "DB_USER",
       "password": "DB_PASS",
@@ -20,7 +21,7 @@ const { DB_HOST, DB_USER, DB_PASS } = process.env;
       "dialect": "mysql"
     },
     "production": {
-      "username": "root",
+      "username": "DB_USER",
       "password": "",
       "database": "database_production",
       "host": "127.0.0.1",
