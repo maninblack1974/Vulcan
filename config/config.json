@@ -1,17 +1,21 @@
+require("dotenv").config();
+
+const { DB_HOST, DB_USER, DB_PASS } = process.env;
+
 {
     "development": {
-      "username": "root",
-      "password": "password",
+      "username": "DB_USER",
+      "password": "DB_PASS",
       "database": "vulcan_db",
-      "host": "127.0.0.1",
+      "host": "DB_HOST",
       "port": 3306,
       "dialect": "mysql"
     },
     "test": {
-      "username": "root",
-      "password": "",
+      "username": "DB_USER",
+      "password": "DB_PASS",
       "database": "database_test",
-      "host": "127.0.0.1",
+      "host": "DB_HOST",
       "port": 3306,
       "dialect": "mysql"
     },
@@ -24,4 +28,3 @@
       "dialect": "mysql"
     }
   }
-  
