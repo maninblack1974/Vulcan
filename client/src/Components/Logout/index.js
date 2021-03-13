@@ -1,54 +1,34 @@
-import { React } from 'react';
-
-import { GoogleLogin } from 'react-google-login';
-// refresh token
-import { refreshTokenSetup } from '../../Utils/refreshToken';
+import React from 'react';
+import { useGoogleLogout } from 'react-google-login';
+// import isSignedIn from "../Login"
 
 const clientId =
   '827360591703-tgm50hh32gmsb3af5l2fi5kl8bd0v1j0.apps.googleusercontent.com';
 
-// var isSignedIn = false;
-
-function Login() {
-  const onSuccess = (res) => {
-    console.log('Login Success: currentUser:', res.profileObj);
-    // alert(
-    //   `Logged in successfully welcome ${res.profileObj.name}`
-    // );
-
-    refreshTokenSetup(res);
-
-  };
-
-  const onFailure = (res) => {
-    console.log('Login failed: res:', res);
-    alert(
-      `Failed to login.`
-    );
-  };
-
-
- 
-    return (
-      <div>
-        <GoogleLogin
-          clientId={clientId}
-          buttonText="Login"
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          cookiePolicy={'single_host_origin'}
-          style={{ marginTop: '100px' }}
-          isSignedIn={true}
-        />
-      </div>
-    );
-} 
-
-
+  function LogoutHooks() {
+    const onLogoutSuccess = (res) => {
+      console.log('Logged out Success');
+      // alert('Logged out Successfully ✌');
+    };
   
+    const onFailure = () => {
+      console.log('Handle failure cases');
+    };
+  
+    const { signOut } = useGoogleLogout({
+      clientId,
+      onLogoutSuccess,
+      onFailure,
+    });
+  
+    return (
+      <button onClick={signOut} className="btn btn-outline-primary btn-sm">
+        Sign out
+      </button>
+    );
+  }
 
-
-export default Login;
+export default LogoutHooks;
 
 
 
