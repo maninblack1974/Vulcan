@@ -12,7 +12,7 @@ router.get("/registerpros", (req, res) => {
 router.post("/registerpros", (req, res) => {
     console.log("Post Triggered", req.body);
     db.servicePro
-      .create(req.body)
+      .create({...req.body, image: req.file.filename})
       .then(() =>
         res.json({
           success: true,
