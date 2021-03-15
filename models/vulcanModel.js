@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         servicePro_profileImg: {
-            type: DataTypes.BLOB
+            type: DataTypes.STRING
         }
     });
 
