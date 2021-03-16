@@ -108,7 +108,7 @@ export default class RegisterPro extends Component {
 
   render() {
     return (
-      <form className="loan-form" onSubmit={this.handleFormSubmit}>
+      <form className="registration-form" onSubmit={this.handleFormSubmit}>
         <fieldset
           className="form-fields container"
           disabled={this.disableForm()}

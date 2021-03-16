@@ -25,6 +25,85 @@ router.post("/registerpros", (req, res) => {
 
   router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
+  router.post("/searchpros", (req, res) => {
+  switch (req.body.searchValue) {
+    case "servicePro_firstName":
+      db.servicePro
+        .findAll({
+          where: {
+            servicePro_firstName: {
+              [Op.substring]: req.body.userInput,
+            },
+          },
+        })
+        .then((applications) => res.json(applications))
+        .catch((err) => res.status(500).json(err));
+      break;
+    case "servicePro_lastName":
+      db.servicePro
+        .findAll({
+          where: {
+            servicePro_lastName: {
+              [Op.substring]: req.body.userInput,
+            },
+          },
+        })
+        .then((applications) => res.json(applications))
+        .catch((err) => res.status(500).json(err));
+      break;
+    case "servicePro_category":
+      db.servicePro
+        .findAll({
+          where: {
+            servicePro_category: {
+              [Op.substring]: req.body.userInput,
+            },
+          },
+        })
+        .then((applications) => res.json(applications))
+        .catch((err) => res.status(500).json(err));
+      break;
+    case "servicePro_city":
+      db.servicePro
+        .findAll({
+          where: {
+            ServicePro_city: {
+              [Op.substring]: req.body.userInput,
+            },
+          },
+        })
+        .then((applications) => res.json(applications))
+        .catch((err) => res.status(500).json(err));
+      break;
+    case "servicePro_state":
+      db.servicePro
+        .findAll({
+          where: {
+            servicePro_state: {
+              [Op.substring]: req.body.userInput,
+            },
+          },
+        })
+        .then((applications) => res.json(applications))
+        .catch((err) => res.status(500).json(err));
+      break;
+    case "servicePro_zipCode":
+      db.servicePro
+        .findAll({
+          where: {
+            servicePro_zipCode: {
+              [Op.substring]: req.body.userInput,
+            },
+          },
+        })
+        .then((applications) => res.json(applications))
+        .catch((err) => res.status(500).json(err));
+      break;
+    default:
+      break;
+  }
+});
+
   
 
   module.exports = router;
