@@ -37,9 +37,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         servicePro_profileImg: {
-            type: DataTypes.STRING
+            type: DataTypes.BLOB("long")
         }
     });
+    
 
     // ServicePro.prototype.validPassword = function(servicePro_userPassword) {
     //     return bcrypt.compareSync(servicePro_userPassword, this.servicePro_userPassword);

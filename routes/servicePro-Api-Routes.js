@@ -1,6 +1,8 @@
 const router = require("express").Router();
 var db = require("../models");
 const { Op } = require("sequelize");
+const uploadController = require("../controllers/uploadController")
+const upload = require('../middleware/multer');
 
 router.get("/registerpros", (req, res) => {
   db.servicePro
@@ -12,7 +14,7 @@ router.get("/registerpros", (req, res) => {
 router.post("/registerpros", (req, res) => {
     console.log("Post Triggered", req.body);
     db.servicePro
-      .create({...req.body, image: req.file.filename})
+      .create(req.body)
       .then(() =>
         res.json({
           success: true,
@@ -20,6 +22,10 @@ router.post("/registerpros", (req, res) => {
       )
       .catch((err) => res.status(500).json(err));
   });
+
+  router.post("/upload", upload.single("file"), uploadController.uploadFiles);
+
+  
 
   module.exports = router;
   // Get route for returning posts of a specific category
