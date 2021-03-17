@@ -18,9 +18,11 @@ export default class RegisterPro extends Component {
       servicePro_city: "",
       servicePro_state: "",
       servicePro_zipCode: "",
+      servicePro_profileImg: "",
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
   }
 
 
@@ -29,6 +31,12 @@ export default class RegisterPro extends Component {
     this.setState({
       [formType]: event.target.value,
     });
+  }
+
+  handleFileChange(event) {
+    const fileType = event.target.id;
+    this.setState({[fileType]:event.target.files[0]})
+    
   }
 
   handleFormSubmit(event) {
@@ -45,6 +53,7 @@ export default class RegisterPro extends Component {
       servicePro_city,
       servicePro_state,
       servicePro_zipCode,
+      servicePro_profileImg,
 
     } = this.state;
     const formData = {
@@ -59,6 +68,8 @@ export default class RegisterPro extends Component {
       "servicePro_city": servicePro_city,
       "servicePro_state": servicePro_state,
       "servicePro_zipCode": servicePro_zipCode,
+      "servicePro_profileImg": servicePro_profileImg,
+      
     };
 
 
@@ -97,7 +108,7 @@ export default class RegisterPro extends Component {
 
   render() {
     return (
-      <form className="loan-form" onSubmit={this.handleFormSubmit}>
+      <form className="registration-form" onSubmit={this.handleFormSubmit}>
         <fieldset
           className="form-fields container"
           disabled={this.disableForm()}
@@ -163,6 +174,16 @@ export default class RegisterPro extends Component {
                 onChange={this.handleInputChange}
               />
             </li>
+            <li className="form-list-item">
+              <label htmlFor="servicePro_profileImg">Image or Logo</label>
+              <input
+                type="file"
+                id="servicePro_profileImg"
+                name="servicePro_profileImg"
+                placeholder="Image or Logo"
+                onChange={this.handleFileChange}
+              />
+              </li>
             <li className="form-list-item">
               <label htmlFor="servicePro_category">CATEGORY</label>
               <select
