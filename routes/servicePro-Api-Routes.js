@@ -3,6 +3,18 @@ var db = require("../models");
 const { Op } = require("sequelize");
 const uploadController = require("../controllers/uploadController")
 const upload = require('../middleware/multer');
+var passport = require("../config/passport");
+
+router.post("/login", passport.authenticate("local"), function(req, res) {
+  res.json(req.user);
+});
+
+router.get("/users", (req, res) => {
+  db.User
+    .findAll({})
+    .then((applications) => res.json(applications))
+    .catch((err) => res.status(500).json(err));
+});
 
 router.get("/registerpros", (req, res) => {
   db.servicePro
@@ -14,6 +26,18 @@ router.get("/registerpros", (req, res) => {
 router.post("/registerpros", (req, res) => {
     console.log("Post Triggered", req.body);
     db.servicePro
+      .create(req.body)
+      .then(() =>
+        res.json({
+          success: true,
+        })
+      )
+      .catch((err) => res.status(500).json(err));
+  });
+
+  router.post("/sign-up", (req, res) => {
+    console.log("Post Triggered", req.body);
+    db.User
       .create(req.body)
       .then(() =>
         res.json({
