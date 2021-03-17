@@ -8,7 +8,7 @@ import Login from "./Components/Login"
 
 ReactDOM.render(
   <BrowserRouter>
-    <App isLoggedIn={true} />
+    <App/>
   </BrowserRouter>,
   document.getElementById('root')
 );
