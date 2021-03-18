@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios"
 import LoginButton from "../LoginButton"
 import LogoutButton from "../LogoutButton"
+import { Redirect } from "react-router-dom"
 
 import { GoogleLogin } from 'react-google-login';
 // refresh token
@@ -54,19 +55,15 @@ export default class Login extends Component {
           success: true,
           // isLoggedIn: true,
         });
-        // return this.state.isLoggedIn;
       }
-    console.log(this.state.isLoggedIn)    });
+    });
   }
   
   renderSuccessMessage() {
     let result = null;
     if (this.state.success) {
-      result = (
-        <div className="success-message">
-          You've officially signed up!
-        </div>
-      );
+      <div>test</div>
+
     }
 
     return result;
