@@ -7,12 +7,9 @@ export default class RegisterPro extends Component {
     super(props);
 
     this.state = {
-      servicePro_firstName: "",
-      servicePro_lastname: "",
-      servicePro_email: "",
-      servicePro_userPassword: "",
       servicePro_companyName: "",
       servicePro_url: "",
+      servicePro_phone: "",
       servicePro_category: "",
       servicePro_address: "",
       servicePro_city: "",
@@ -42,12 +39,9 @@ export default class RegisterPro extends Component {
   handleFormSubmit(event) {
     event.preventDefault();
     const {
-      servicePro_firstName,
-      servicePro_lastName,
-      servicePro_email,
-      servicePro_userPassword,
       servicePro_companyName,
       servicePro_url,
+      servicePro_phone,
       servicePro_category,
       servicePro_address,
       servicePro_city,
@@ -57,12 +51,9 @@ export default class RegisterPro extends Component {
 
     } = this.state;
     const formData = {
-      "servicePro_firstName": servicePro_firstName,
-      "servicePro_lastName": servicePro_lastName,
-      "servicePro_email": servicePro_email,
-      "servicePro_userPassword": servicePro_userPassword,
       "servicePro_companyName": servicePro_companyName,
       "servicePro_url": servicePro_url,
+      "servicePro_phone": servicePro_phone,
       "servicePro_category": servicePro_category,
       "servicePro_address": servicePro_address,
       "servicePro_city": servicePro_city,
@@ -115,46 +106,6 @@ export default class RegisterPro extends Component {
         >
           <ul className="form-container col-lg-6">
             <li className="form-list-item">
-              <label htmlFor="servicePro_firstName">FIRST NAME</label>
-              <input
-                type="text"
-                id="servicePro_firstName"
-                name="servicePro_firstName"
-                placeholder="First Name"
-                onChange={this.handleInputChange}
-              />
-            </li>
-            <li className="form-list-item">
-              <label htmlFor="servicePro_lastName">LAST NAME</label>
-              <input
-                type="text"
-                id="servicePro_lastName"
-                name="servicePro_lastName"
-                placeholder="Last Name"
-                onChange={this.handleInputChange}
-              />
-            </li>
-            <li className="form-list-item">
-              <label htmlFor="servicePro_email">EMAIL</label>
-              <input
-                type="text"
-                id="servicePro_email"
-                name="lservicePro_email"
-                placeholder="Email"
-                onChange={this.handleInputChange}
-              />
-            </li>
-            <li className="form-list-item">
-              <label htmlFor="servicePro_userPassword">PASSWORD</label>
-              <input
-                type="text"
-                id="servicePro_userPassword"
-                name="servicePro_userPassword"
-                placeholder="Password"
-                onChange={this.handleInputChange}
-              />
-            </li>
-            <li className="form-list-item">
               <label htmlFor="servicePro_companyName">COMPANY NAME</label>
               <input
                 type="text"
@@ -175,7 +126,17 @@ export default class RegisterPro extends Component {
               />
             </li>
             <li className="form-list-item">
-              <label htmlFor="servicePro_profileImg">Image or Logo</label>
+              <label htmlFor="servicePro_phone">PHONE NUMBER</label>
+              <input
+                type="text"
+                id="servicePro_phone"
+                name="servicePro_phone"
+                placeholder="Phone Number"
+                onChange={this.handleInputChange}
+              />
+            </li>
+            <li className="form-list-item">
+              <label htmlFor="servicePro_profileImg">PROFILE IMAGE</label>
               <input
                 type="file"
                 id="servicePro_profileImg"
