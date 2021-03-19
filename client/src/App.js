@@ -10,7 +10,7 @@ import GuestHeader from './Components/GuestHeader';
 import AuthContext from "./Utils/AuthContext"
 import React, {Component, useState, useEffect} from "react";
 
-export default class App extends Component {
+class App extends Component {
   static contentType = AuthContext
 
   constructor(props) {
@@ -22,10 +22,9 @@ export default class App extends Component {
 
   }
 
-
     render () {
-      let isLoggedIn = this.context;
-      if (isLoggedIn) {
+      let isLoggedIn = this.context.isLoggedIn;
+      if (isLoggedIn === true) {
         console.log(isLoggedIn)
       return (
         <Router>
@@ -39,7 +38,7 @@ export default class App extends Component {
               </Switch>
         </Router>
       )
-    } else {
+    }  {
       console.log(isLoggedIn)
       return (
         <Router>
@@ -56,6 +55,10 @@ export default class App extends Component {
     }
     }
 }
+
+App.contextType = AuthContext
+
+export default App
 
   // if (this.state.isLoggedIn) {
   //       render (); {
