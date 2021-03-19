@@ -8,23 +8,22 @@ import AuthContext from "../../Utils/AuthContext"
 import { GoogleLogin } from 'react-google-login';
 // refresh token
 import { refreshTokenSetup } from '../../Utils/refreshToken';
+import { reset } from 'nodemon';
 
 const clientId =
   '827360591703-tgm50hh32gmsb3af5l2fi5kl8bd0v1j0.apps.googleusercontent.com';
 
 class Login extends Component {
-  static contentType = AuthContext
 
   constructor(props) {
     super(props);
-
     this.state = {
       email: "",
       password: "",
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.state = {isLoggedIn: false}
+    //this.state = {isLoggedIn: false}
   }
 
   handleInputChange(event) {
@@ -46,18 +45,21 @@ class Login extends Component {
       "password": password,
     };
 
-    console.log("****",formData);
+    console.log("****",this.props);
     // this.setState({isLoggedIn: true})
+
+    // console.log(contentType);
 
     // let isLoggedIn = this.context.isLoggedIn
 
     axios.post("/api/login", formData).then((res) => {
-      console.log("*****LOGGED IN!******",res.data);
-      if (res.data.success) {
-        this.setState({
-          success: true,
-          // isLoggedIn: true,
-        });
+      console.log("*****LOGGED IN!******",res);
+      if (res.data) {
+        // this.setState({
+        //   success: true,
+        //   // isLoggedIn: true,
+        // });
+        this.props.setAuth(true);
       }
     });
   }
@@ -98,7 +100,6 @@ class Login extends Component {
   };
  
     render() {
-      console.log(this.state.isLoggedIn);
       return (
       <div className="container-sm">
       <form onSubmit={this.handleFormSubmit}>
@@ -155,6 +156,6 @@ class Login extends Component {
   } 
 }
 
-Login.contextType = AuthContext
+//Login.contextType = AuthContext
 
 export default Login

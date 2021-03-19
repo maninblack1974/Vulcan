@@ -10,55 +10,116 @@ import GuestHeader from './Components/GuestHeader';
 import AuthContext from "./Utils/AuthContext"
 import React, {Component, useState, useEffect} from "react";
 
-class App extends Component {
-  static contentType = AuthContext
 
-  constructor(props) {
-    super(props);
+function App() {
+  //const isLoggedIn = props.isLoggedIn;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // this.state = {
-    //   isLoggedIn: false,
-    // };
-
+  const setAuth = (isAuth) => {
+    console.log("we should be rerendering ...");
+    setIsLoggedIn(isAuth);
   }
 
-    render () {
-      let isLoggedIn = this.context.isLoggedIn;
-      if (isLoggedIn === true) {
-        console.log(isLoggedIn)
-      return (
-        <Router>
-            <UserHeader/>
-              <Switch>
-                  <Route exact path='/' component={Main} />
-                  <Route path="/registerPro" component={RegisterPro} />
-                  <Route path="/searchpros" component={SearchPros} />
-                  {/* <Route path="/sign-in" component={Login} />
-                  <Route path="/sign-up" component={SignUp} /> */}
-              </Switch>
-        </Router>
-      )
-    }  {
-      console.log(isLoggedIn)
-      return (
-        <Router>
-            <GuestHeader/>
-              <Switch>
-                  <Route exact path='/' component={Main} />
-                  {/* <Route path="/registerPro" component={RegisterPro} />
-                  <Route path="/searchpros" component={SearchPros} /> */}
-                  <Route path="/sign-in" component={Login} />
-                  <Route path="/sign-up" component={SignUp} />
-              </Switch>
-        </Router>
-      )
-    }
-    }
+  if (isLoggedIn) {
+    return (
+      <Router>
+      <UserHeader/>
+        <Switch>
+            <Route exact path='/' component={Main} />
+            <Route path="/registerPro" component={RegisterPro} />
+            <Route path="/searchpros" component={SearchPros} />
+            {/* <Route path="/sign-in" component={Login} />
+            <Route path="/sign-up" component={SignUp} /> */}
+        </Switch>
+    </Router>
+    )
+  } 
+  return (
+  
+      <Router>
+        <GuestHeader/>
+          <Switch>
+              <Route exact path='/' component={Main} />
+              <Route path="/sign-in">
+                <Login setAuth={setAuth}/>
+              </Route>
+              <Route path="/sign-up" component={SignUp} />
+              {/* <Route path="/searchpros" component={SearchPros} />
+              <Route path="/registerPro" component={RegisterPro} /> */}
+            </Switch>
+      </Router>
+  )
 }
 
-App.contextType = AuthContext
+export default App;
 
-export default App
+// class App extends Component {
+//   static contentType = AuthContext
+
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       isLoggedIn: false,
+//     };
+
+//   }
+
+//     render () {
+//       let isLoggedIn = this.context.isLoggedIn;
+//       if (isLoggedIn === true) {
+//         console.log(isLoggedIn)
+//       return (
+//         <AuthContext.Provider value={{isLoggedIn: this.state.isLoggedIn,
+//           setLoginState: (loginState) => {
+//             this.setState({
+//               isLoggedIn:loginState
+//             })
+//           }
+//         }}>
+//         <Router>
+//             <UserHeader/>
+//               <Switch>
+//                   <Route exact path='/' component={Main} />
+//                   <Route path="/registerPro" component={RegisterPro} />
+//                   <Route path="/searchpros" component={SearchPros} />
+//                   {/* <Route path="/sign-in" component={Login} />
+//                   <Route path="/sign-up" component={SignUp} /> */}
+//               </Switch>
+//         </Router>
+//         </AuthContext.Provider>
+//       )
+//     }  {
+//       console.log(isLoggedIn)
+//       return (
+//         <AuthContext.Provider value={{
+//           isLoggedIn: this.state.isLoggedIn,
+//           setLoginState: (loginState) => {
+//             this.setState({
+//               isLoggedIn:loginState
+//             })
+//           }
+//         }}>
+//         <Router>
+//             <GuestHeader/>
+//               <Switch>
+//                   <Route exact path='/' component={Main} />
+//                   {/* <Route path="/registerPro" component={RegisterPro} />
+//                   <Route path="/searchpros" component={SearchPros} /> */}
+//                   <Route path="/sign-in" component={Login} />
+//                   <Route path="/sign-up" component={SignUp} />
+//               </Switch>
+//         </Router>
+//         </AuthContext.Provider>
+
+//       )
+//     }
+//     }
+// }
+
+// App.contextType = AuthContext
+
+// export default App
 
   // if (this.state.isLoggedIn) {
   //       render (); {
