@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import axios from "axios"
 import LoginButton from "../LoginButton"
 import LogoutButton from "../LogoutButton"
-import { Redirect } from "react-router-dom"
-import AuthContext from "../../Utils/AuthContext"
+// import { Redirect } from "react-router-dom"
+// import AuthContext from "../../Utils/AuthContext"
 
 import { GoogleLogin } from 'react-google-login';
 // refresh token
 import { refreshTokenSetup } from '../../Utils/refreshToken';
-import { reset } from 'nodemon';
 
 const clientId =
   '827360591703-tgm50hh32gmsb3af5l2fi5kl8bd0v1j0.apps.googleusercontent.com';
