@@ -46,17 +46,18 @@ export default class SignUp extends Component {
       };
   
   
-      console.log("****",formData);
+      console.log("****",this.props);
   
       axios.post("/api/sign-up", formData).then((res) => {
-        console.log("***********",res.data);
-        if (res.data.success) {
-          this.setState({
-            success: true,
-          });
-          console.log(this.state.success)
+        console.log("******SIGN-UP!*****",res);
+        if (res.data) {
+          // this.setState({
+          //   success: true,
+          // });
+          // console.log(this.state.success);
+          this.props.setAuth(true);
+
         }
-        return this.state.success
       });
     }
   

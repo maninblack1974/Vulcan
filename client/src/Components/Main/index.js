@@ -1,5 +1,6 @@
 
 function Main() {
+  console.log("****Mina");
     return (
         <main className="px-3">
         <h1>Find a service provider.</h1>

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import axios from "axios"
 import LoginButton from "../LoginButton"
 import LogoutButton from "../LogoutButton"
+// import { Redirect } from "react-router-dom"
+// import AuthContext from "../../Utils/AuthContext"
 
 import { GoogleLogin } from 'react-google-login';
 // refresh token
@@ -10,18 +12,17 @@ import { refreshTokenSetup } from '../../Utils/refreshToken';
 const clientId =
   '827360591703-tgm50hh32gmsb3af5l2fi5kl8bd0v1j0.apps.googleusercontent.com';
 
-export default class Login extends Component {
+class Login extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       email: "",
       password: "",
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.state = {isLoggedIn: false}
+    //this.state = {isLoggedIn: false}
   }
 
   handleInputChange(event) {
@@ -43,30 +44,27 @@ export default class Login extends Component {
       "password": password,
     };
 
-    console.log("****",formData);
+    console.log("****",this.props);
+    // this.setState({isLoggedIn: true})
 
-    this.setState({isLoggedIn: true})
+    // let isLoggedIn = this.context.isLoggedIn
 
     axios.post("/api/login", formData).then((res) => {
-      console.log("*****LOGGED IN!******",res.data);
-      if (res.data.success) {
-        this.setState({
-          success: true,
-          // isLoggedIn: true,
-        });
-        // return this.state.isLoggedIn;
+      console.log("*****LOGGED IN!******",res);
+      if (res.data) {
+        // this.setState({
+        //   success: true,
+        //   // isLoggedIn: true,
+        // });
+        this.props.setAuth(true);
       }
-    console.log(this.state.isLoggedIn)    });
+    });
   }
   
   renderSuccessMessage() {
     let result = null;
     if (this.state.success) {
-      result = (
-        <div className="success-message">
-          You've officially signed up!
-        </div>
-      );
+      this.context.update({ isLoggedIn: true})
     }
 
     return result;
@@ -99,7 +97,6 @@ export default class Login extends Component {
   };
  
     render() {
-      console.log(this.state.isLoggedIn);
       return (
       <div className="container-sm">
       <form onSubmit={this.handleFormSubmit}>
@@ -155,3 +152,7 @@ export default class Login extends Component {
     );
   } 
 }
+
+//Login.contextType = AuthContext
+
+export default Login
