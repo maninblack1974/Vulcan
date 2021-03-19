@@ -7,7 +7,10 @@ import RegisterPro from "./Components/RegisterPro";
 import SearchPros from "./Components/SearchPros";
 import UserHeader from './Components/UserHeader';
 import GuestHeader from './Components/GuestHeader';
+import Search from "./Pages/Search";
+import Saved from "./Pages/Saved"
 import React, {Component, useState, useEffect} from "react";
+
 
 
 function App() {
@@ -44,6 +47,31 @@ function App() {
             <Route exact path="/"><Main/></Route>
             <Route path="/registerPro" component={RegisterPro} />
             <Route path="/searchpros" component={SearchPros} />
+
+            <Route path="/sign-in" component={Login} />
+            <Route path="/sign-up" component={SignUp} />
+            <Route exact path="/search" component={Search}/>
+            <Route exact path="/saved" component={Saved}/>
+        </Switch>
+    </Router>
+    )
+  } 
+  return (
+  
+      <Router>
+        <GuestHeader/>
+          <Switch>
+              <Route exact path='/' component={Main} />
+              <Route path="/sign-in" component={Login} />
+              <Route path="/sign-up" component={SignUp} />
+              <Route path="/searchpros" component={SearchPros} />
+              <Route path="/registerPro" component={RegisterPro} />
+              <Route exact path="/search" component={Search}/>
+            <Route exact path="/saved" component={Saved}/>
+            </Switch>
+      </Router>
+  )
+
              <Route path="/sign-in">
                   {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth}/>}
             </Route> 

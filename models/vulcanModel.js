@@ -2,22 +2,25 @@
 
 module.exports = (sequelize, DataTypes) => {
     const servicePro = sequelize.define("servicePro", {
-        servicePro_firstName: {
-            type: DataTypes.STRING
-        },
-        servicePro_lastName: {
-            type: DataTypes.STRING
-        },
-        servicePro_email: {
-            type: DataTypes.STRING
-        },
-        servicePro_userPassword: {
-            type: DataTypes.STRING
-        },
+        // servicePro_firstName: {
+        //     type: DataTypes.STRING
+        // },
+        // servicePro_lastName: {
+        //     type: DataTypes.STRING
+        // },
+        // servicePro_email: {
+        //     type: DataTypes.STRING
+        // },
+        // servicePro_userPassword: {
+        //     type: DataTypes.STRING
+        // },
         servicePro_companyName: {
             type: DataTypes.STRING
         },
         servicePro_url: {
+            type: DataTypes.STRING
+        },
+        servicePro_phone: {
             type: DataTypes.STRING
         },
         servicePro_category: {
@@ -37,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
         servicePro_profileImg: {
-            type: DataTypes.BLOB("long")
+            type: DataTypes.STRING
         }
     });
     

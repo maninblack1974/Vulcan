@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Container, Row, Col } from "../Grid"
+import { Container, Row, Col } from "../Components/Grid"
+import { FormBtn } from "../Components/Form"
 
 
 export default class SearchPros extends Component {
@@ -41,6 +42,7 @@ export default class SearchPros extends Component {
     });
   }
 
+
   handleRadioChange(event) {
     const searchParams = {
       searchValue: event.target.getAttribute("value"),
@@ -65,21 +67,13 @@ export default class SearchPros extends Component {
             <div className="card-body">
               <Row className="SearchResult row" id={servicePros.servicePro_companyName} key={servicePros._id}>
                 <Col size="2">
-                  <img src={servicePros.servicePro_profileImg} alt={servicePros.name} />
+                
                 </Col>
                 <Col size="10" className="pl-2">
-                  <h3 className="serviceProviderCategory">{servicePros.servicePro_category}</h3>
-                  <h4 className="serviceProviderWebsite">{servicePros.servicePro_url}</h4>
-                  <p className="serviceProviderPhone pr-3">{servicePros.servicePro_phone}</p>
+                  <h3 className="serviceProviderCompanyName">{servicePros.servicePro_companyName}</h3>
+                  <h4 className="serviceProviderCategory">{servicePros.servicePro_category}</h4>
+                  <p className="serviceProviderWebiste pr-3">{servicePros.servicePro_url}</p>
                 </Col>
-              </Row>
-              <Row>
-                <button className="save btn mt-4 ml-3 mr-1" id={servicePros.id} onClick={(event) => props.handleSavedButton(event)}>
-                  Save Service Provider</button>             
-                <a href={servicePros.link} target="_blank" rel="noopener noreferrer">
-                  <button className="view btn mt-4">
-                    View Service Provider</button>                 
-                </a>
               </Row>
             </div>
           </div>
@@ -94,7 +88,7 @@ export default class SearchPros extends Component {
       <div className="registered-pros">
         <div className="pros-search container">
           <div className="search-bar">
-            <label htmlFor="search-bar">Search</label>
+            <label htmlFor="search-bar">Search by Category</label>
             <input
               id="search-bar"
               name="search-bar"

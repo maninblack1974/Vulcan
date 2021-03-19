@@ -1,8 +1,6 @@
 const router = require("express").Router();
 var db = require("../models");
 const { Op } = require("sequelize");
-const uploadController = require("../controllers/uploadController")
-const upload = require('../middleware/multer');
 var passport = require("../config/passport");
 
 router.post("/login", passport.authenticate("local"), function(req, res) {
@@ -47,7 +45,6 @@ router.post("/registerpros", (req, res) => {
       .catch((err) => res.status(500).json(err));
   });
 
-  router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
   router.post("/searchpros", (req, res) => {
   switch (req.body.searchValue) {
