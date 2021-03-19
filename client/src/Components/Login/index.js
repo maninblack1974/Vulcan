@@ -3,6 +3,7 @@ import axios from "axios"
 import LoginButton from "../LoginButton"
 import LogoutButton from "../LogoutButton"
 import { Redirect } from "react-router-dom"
+import AuthContext from "../../Utils/AuthContext"
 
 import { GoogleLogin } from 'react-google-login';
 // refresh token
@@ -11,7 +12,8 @@ import { refreshTokenSetup } from '../../Utils/refreshToken';
 const clientId =
   '827360591703-tgm50hh32gmsb3af5l2fi5kl8bd0v1j0.apps.googleusercontent.com';
 
-export default class Login extends Component {
+class Login extends Component {
+  static contentType = AuthContext
 
   constructor(props) {
     super(props);
@@ -45,8 +47,9 @@ export default class Login extends Component {
     };
 
     console.log("****",formData);
+    // this.setState({isLoggedIn: true})
 
-    this.setState({isLoggedIn: true})
+    // let isLoggedIn = this.context.isLoggedIn
 
     axios.post("/api/login", formData).then((res) => {
       console.log("*****LOGGED IN!******",res.data);
@@ -62,8 +65,7 @@ export default class Login extends Component {
   renderSuccessMessage() {
     let result = null;
     if (this.state.success) {
-      <div>test</div>
-
+      this.context.update({ isLoggedIn: true})
     }
 
     return result;
@@ -152,3 +154,7 @@ export default class Login extends Component {
     );
   } 
 }
+
+Login.contextType = AuthContext
+
+export default Login
