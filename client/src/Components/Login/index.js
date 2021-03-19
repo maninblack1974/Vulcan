@@ -57,7 +57,7 @@ class Login extends Component {
         //   // isLoggedIn: true,
         // });
         this.props.setAuth(true);
-      }
+      } 
     });
   }
   
@@ -84,7 +84,7 @@ class Login extends Component {
     // alert(
     //   `Logged in successfully welcome ${res.profileObj.name}`
     // );
-
+    this.props.setAuth(true);
     refreshTokenSetup(res);
 
   };
@@ -137,13 +137,14 @@ class Login extends Component {
         <GoogleLogin
           clientId={clientId}
           buttonText="Login with Google"
-          // onSuccess={onSuccess}
-          // onFailure={onFailure}
+          onSuccess={this.onSuccess}
+          onFailure={this.onFailure}
           cookiePolicy={'single_host_origin'}
           style={{ marginTop: '100px' }}
           isSignedIn={true}
-          uxMode="redirect"
-          redirectURI="http://localhost:3000/"
+          
+          // uxMode="redirect"
+          // redirectURI="http://localhost:3000"
         />
       </div>
       </fieldset>
