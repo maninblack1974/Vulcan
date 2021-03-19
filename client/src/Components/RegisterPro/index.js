@@ -154,21 +154,21 @@ export default class RegisterPro extends Component {
                     onChange={this.handleInputChange}
                   >
                     <option defaultValue="">Choose...</option>
-                    <option value="AL">Apparel</option>
-                    <option value="AK">Bar/Beer Cleaning</option>
-                    <option value="AZ">Electrican</option>
-                    <option value="AR">General Cleaning</option>
-                    <option value="CA">HVAC</option>
-                    <option value="CO">Food Distributor</option>
-                    <option value="CT">Alcohol Distributor</option>
-                    <option value="DE">Hood Cleaning</option>
-                    <option value="DC">Plumber</option>
-                    <option value="FL">Refrigeration</option>
-                    <option value="GA">Outdoor Heating</option>
-                    <option value="HI">Linens</option>
-                    <option value="ID">Pest Control</option>
-                    <option value="ID">Window Repair</option>
-                    <option value="ID">Table Booth Repair</option>
+                    <option value="Apparel">Apparel</option>
+                    <option value="Bar/Beer Cleaning">Bar/Beer Cleaning</option>
+                    <option value="Electrican">Electrican</option>
+                    <option value="General Cleaning">General Cleaning</option>
+                    <option value="HVAC">HVAC</option>
+                    <option value="Food Distributor">Food Distributor</option>
+                    <option value="Alcohol Distributor">Alcohol Distributor</option>
+                    <option value="Hood Cleaning">Hood Cleaning</option>
+                    <option value="Plumber">Plumber</option>
+                    <option value="Refrigeration">Refrigeration</option>
+                    <option value="Outdoor Heating">Outdoor Heating</option>
+                    <option value="Linens">Linens</option>
+                    <option value="Pest Control">Pest Control</option>
+                    <option value="Window Repair">Window Repair</option>
+                    <option value="Table Booth Repair">Table Booth Repair</option>
                   </select>
                   </li>
               <li className="form-list-item">
