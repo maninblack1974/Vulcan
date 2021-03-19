@@ -87,6 +87,9 @@ export default class SignUp extends Component {
       // alert(
       //   `Logged in successfully welcome ${res.profileObj.name}`
       // );
+
+      this.props.setAuth(true);
+
   
       refreshTokenSetup(res);
   
@@ -160,13 +163,13 @@ export default class SignUp extends Component {
               <GoogleLogin
           clientId={clientId}
           buttonText="Sign-up with Google"
-          // onSuccess={onSuccess}
-          // onFailure={onFailure}
+          onSuccess={this.onSuccess}
+          onFailure={this.onFailure}
           cookiePolicy={'single_host_origin'}
           style={{ marginTop: '100px' }}
           isSignedIn={true}
-          uxMode="redirect"
-          redirectURI="http://localhost:3000/"
+          // uxMode="redirect"
+          // redirectURI="http://localhost:3000/"
         />
               </div>
           </fieldset>
