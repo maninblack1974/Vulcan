@@ -42,23 +42,6 @@ export default class SearchPros extends Component {
     });
   }
 
-  handleSave(event) {
-    event.preventDefault();
-    for (let i = 0; i < servicePros.length; i++){
-        if(event.target.id === searchedPros[i].id) {
-            API.saveBook({
-                company: searchedPros[i].servicePro_companyName,
-                category: searchedPros[i].servicePro_category,
-                webiste: searchedPros[i].servicePro_url,
-                image: searchedPros[i].servicePro_profileImg,
-            })
-            .then(res => {
-                console.log("Pro saved successfully")
-            })
-            .catch(err => console.log(err));
-        }
-    }
-}
 
   handleRadioChange(event) {
     const searchParams = {
@@ -84,16 +67,13 @@ export default class SearchPros extends Component {
             <div className="card-body">
               <Row className="SearchResult row" id={servicePros.servicePro_companyName} key={servicePros._id}>
                 <Col size="2">
-                  <img src={servicePros.servicePro_profileImg} alt={servicePros.name} />
+                
                 </Col>
                 <Col size="10" className="pl-2">
                   <h3 className="serviceProviderCompanyName">{servicePros.servicePro_companyName}</h3>
                   <h4 className="serviceProviderCategory">{servicePros.servicePro_category}</h4>
                   <p className="serviceProviderWebiste pr-3">{servicePros.servicePro_url}</p>
                 </Col>
-              </Row>
-              <Row>
-              
               </Row>
             </div>
           </div>
