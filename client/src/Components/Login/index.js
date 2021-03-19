@@ -47,8 +47,6 @@ class Login extends Component {
     console.log("****",this.props);
     // this.setState({isLoggedIn: true})
 
-    // console.log(contentType);
-
     // let isLoggedIn = this.context.isLoggedIn
 
     axios.post("/api/login", formData).then((res) => {

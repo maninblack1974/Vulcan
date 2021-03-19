@@ -45,12 +45,11 @@ function App() {
             <Route path="/registerPro" component={RegisterPro} />
             <Route path="/searchpros" component={SearchPros} />
              <Route path="/sign-in">
-                {/* <Login setAuth={setAuth}/> */}
                   {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth}/>}
-              </Route> 
-              <Route path="/sign-up" component={SignUp} />
-            {/* <Route path="/sign-in" component={Login} />
-            <Route path="/sign-up" component={SignUp} /> */}
+            </Route> 
+              <Route path="/sign-up" component={SignUp} >
+                {isLoggedIn ? <Redirect to="/registerPro"/> : <SignUp setAuth={setAuth}/>}
+            </Route>
         </Switch>
     </Router>
     )
