@@ -8,6 +8,8 @@ import SearchPros from "./Components/SearchPros";
 import UserHeader from './Components/UserHeader';
 import GuestHeader from './Components/GuestHeader';
 import React, {Component, useState, useEffect} from "react";
+import Saved from "../src/Pages/Saved"
+import Search from "../src/Pages/Search"
 
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
               
             <Route exact path="/"><Main/></Route>
             <Route path="/registerPro" component={RegisterPro} />
+            <Route path="/search" component={Search} />
+            <Route path="/saved" component={Saved} />
             <Route path="/searchpros" component={SearchPros} />
              <Route path="/sign-in">
                   {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth}/>}

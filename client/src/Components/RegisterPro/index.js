@@ -7,12 +7,9 @@ export default class RegisterPro extends Component {
     super(props);
 
     this.state = {
-      servicePro_firstName: "",
-      servicePro_lastname: "",
-      servicePro_email: "",
-      servicePro_userPassword: "",
       servicePro_companyName: "",
       servicePro_url: "",
+      servicePro_phone: "",
       servicePro_category: "",
       servicePro_address: "",
       servicePro_city: "",
@@ -42,12 +39,9 @@ export default class RegisterPro extends Component {
   handleFormSubmit(event) {
     event.preventDefault();
     const {
-      servicePro_firstName,
-      servicePro_lastName,
-      servicePro_email,
-      servicePro_userPassword,
       servicePro_companyName,
       servicePro_url,
+      servicePro_phone,
       servicePro_category,
       servicePro_address,
       servicePro_city,
@@ -57,12 +51,9 @@ export default class RegisterPro extends Component {
 
     } = this.state;
     const formData = {
-      "servicePro_firstName": servicePro_firstName,
-      "servicePro_lastName": servicePro_lastName,
-      "servicePro_email": servicePro_email,
-      "servicePro_userPassword": servicePro_userPassword,
       "servicePro_companyName": servicePro_companyName,
       "servicePro_url": servicePro_url,
+      "servicePro_phone": servicePro_phone,
       "servicePro_category": servicePro_category,
       "servicePro_address": servicePro_address,
       "servicePro_city": servicePro_city,
@@ -115,46 +106,6 @@ export default class RegisterPro extends Component {
         >
           <ul className="form-container col-lg-6">
             <li className="form-list-item">
-              <label htmlFor="servicePro_firstName">FIRST NAME</label>
-              <input
-                type="text"
-                id="servicePro_firstName"
-                name="servicePro_firstName"
-                placeholder="First Name"
-                onChange={this.handleInputChange}
-              />
-            </li>
-            <li className="form-list-item">
-              <label htmlFor="servicePro_lastName">LAST NAME</label>
-              <input
-                type="text"
-                id="servicePro_lastName"
-                name="servicePro_lastName"
-                placeholder="Last Name"
-                onChange={this.handleInputChange}
-              />
-            </li>
-            <li className="form-list-item">
-              <label htmlFor="servicePro_email">EMAIL</label>
-              <input
-                type="text"
-                id="servicePro_email"
-                name="lservicePro_email"
-                placeholder="Email"
-                onChange={this.handleInputChange}
-              />
-            </li>
-            <li className="form-list-item">
-              <label htmlFor="servicePro_userPassword">PASSWORD</label>
-              <input
-                type="text"
-                id="servicePro_userPassword"
-                name="servicePro_userPassword"
-                placeholder="Password"
-                onChange={this.handleInputChange}
-              />
-            </li>
-            <li className="form-list-item">
               <label htmlFor="servicePro_companyName">COMPANY NAME</label>
               <input
                 type="text"
@@ -175,7 +126,17 @@ export default class RegisterPro extends Component {
               />
             </li>
             <li className="form-list-item">
-              <label htmlFor="servicePro_profileImg">Image or Logo</label>
+              <label htmlFor="servicePro_phone">PHONE NUMBER</label>
+              <input
+                type="text"
+                id="servicePro_phone"
+                name="servicePro_phone"
+                placeholder="Phone Number"
+                onChange={this.handleInputChange}
+              />
+            </li>
+            <li className="form-list-item">
+              <label htmlFor="servicePro_profileImg">PROFILE IMAGE</label>
               <input
                 type="file"
                 id="servicePro_profileImg"
@@ -193,21 +154,21 @@ export default class RegisterPro extends Component {
                     onChange={this.handleInputChange}
                   >
                     <option defaultValue="">Choose...</option>
-                    <option value="AL">Apparel</option>
-                    <option value="AK">Bar/Beer Cleaning</option>
-                    <option value="AZ">Electrican</option>
-                    <option value="AR">General Cleaning</option>
-                    <option value="CA">HVAC</option>
-                    <option value="CO">Food Distributor</option>
-                    <option value="CT">Alcohol Distributor</option>
-                    <option value="DE">Hood Cleaning</option>
-                    <option value="DC">Plumber</option>
-                    <option value="FL">Refrigeration</option>
-                    <option value="GA">Outdoor Heating</option>
-                    <option value="HI">Linens</option>
-                    <option value="ID">Pest Control</option>
-                    <option value="ID">Window Repair</option>
-                    <option value="ID">Table Booth Repair</option>
+                    <option value="Apparel">Apparel</option>
+                    <option value="Bar/Beer Cleaning">Bar/Beer Cleaning</option>
+                    <option value="Electrican">Electrican</option>
+                    <option value="General Cleaning">General Cleaning</option>
+                    <option value="HVAC">HVAC</option>
+                    <option value="Food Distributor">Food Distributor</option>
+                    <option value="Alcohol Distributor">Alcohol Distributor</option>
+                    <option value="Hood Cleaning">Hood Cleaning</option>
+                    <option value="Plumber">Plumber</option>
+                    <option value="Refrigeration">Refrigeration</option>
+                    <option value="Outdoor Heating">Outdoor Heating</option>
+                    <option value="Linens">Linens</option>
+                    <option value="Pest Control">Pest Control</option>
+                    <option value="Window Repair">Window Repair</option>
+                    <option value="Table Booth Repair">Table Booth Repair</option>
                   </select>
                   </li>
               <li className="form-list-item">
