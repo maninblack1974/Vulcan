@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 // import Header from './Components/Header';
 import Main from './Components/Main';
 import Login from "./Components/Login";
@@ -7,38 +7,55 @@ import RegisterPro from "./Components/RegisterPro";
 import SearchPros from "./Components/SearchPros";
 import UserHeader from './Components/UserHeader';
 import GuestHeader from './Components/GuestHeader';
+import React, {Component, useState, useEffect} from "react";
+import Saved from "../src/Pages/Saved"
+import Search from "../src/Pages/Search"
 
-function App(props) {
-  const isLoggedIn = props.isLoggedIn;
-  if (isLoggedIn) {
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const setAuth = (isAuth) => {
+    console.log("we should be rerendering ...");
+    setIsLoggedIn(isAuth);
+  }
+
+  const renderheader = () => {
+    let result = null;
+    
+    if (isLoggedIn) {
+      result = (
+        <UserHeader/>
+      );
+    } else {
+      result = (
+        <GuestHeader/>
+      );
+    }
+
+    return result;
+  }
+
     return (
       <Router>
-      <UserHeader/>
+        {renderheader()}
         <Switch>
-            <Route exact path='/' component={Main} />
+              
+            <Route exact path="/"><Main/></Route>
             <Route path="/registerPro" component={RegisterPro} />
+            <Route path="/search" component={Search} />
+            <Route path="/saved" component={Saved} />
             <Route path="/searchpros" component={SearchPros} />
-            <Route path="/sign-in" component={Login} />
-            <Route path="/sign-up" component={SignUp} />
+             <Route path="/sign-in">
+                  {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth}/>}
+            </Route> 
+              <Route path="/sign-up" component={SignUp} >
+                {isLoggedIn ? <Redirect to="/registerPro"/> : <SignUp setAuth={setAuth}/>}
+            </Route>
         </Switch>
     </Router>
     )
-  } 
-  return (
-  
-      <Router>
-        <GuestHeader/>
-          <Switch>
-              <Route exact path='/' component={Main} />
-              <Route path="/sign-in" component={Login} />
-              <Route path="/sign-up" component={SignUp} />
-              <Route path="/searchpros" component={SearchPros} />
-              <Route path="/registerPro" component={RegisterPro} />
-            </Switch>
-      </Router>
-  )
 }
 
 export default App;
-
 
