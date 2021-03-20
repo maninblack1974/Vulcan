@@ -19,7 +19,7 @@ export default class RegisterPro extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleFileChange = this.handleFileChange.bind(this);
+    this.handleFileUpload = this.handleFileUpload.bind(this);
   }
 
 
@@ -30,10 +30,16 @@ export default class RegisterPro extends Component {
     });
   }
 
-  handleFileChange(event) {
-    const fileType = event.target.id;
-    this.setState({[fileType]:event.target.files[0]})
-    
+  handleFileUpload(event) {
+    const myWidget = cloudinary.createUploadWidget({
+      cloudName: 'august-innovations-inc', 
+      uploadPreset: 'uz3n96ci'}, (error, result) => { 
+        if (!error && result && result.event === "success") { 
+          myWidget.open();
+          console.log('Done! Here is the image info: ', result.info); 
+        }
+      }
+    )
   }
 
   handleFormSubmit(event) {
@@ -137,13 +143,8 @@ export default class RegisterPro extends Component {
             </li>
             <li className="form-list-item">
               <label htmlFor="servicePro_profileImg">PROFILE IMAGE</label>
-              <input
-                type="file"
-                id="servicePro_profileImg"
-                name="servicePro_profileImg"
-                placeholder="Image or Logo"
-                onChange={this.handleFileChange}
-              />
+              <button id="upload_widget servicePro_profileImg" className="cloudinary-button" onClick={this.handleFileUpload}>Upload files</button>
+            
               </li>
             <li className="form-list-item">
               <label htmlFor="servicePro_category">CATEGORY</label>
@@ -280,6 +281,10 @@ export default class RegisterPro extends Component {
     )
   }
 }
+
+
+
+
 
 
 // render() {
