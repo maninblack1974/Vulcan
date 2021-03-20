@@ -14,6 +14,11 @@ import Search from "../src/Pages/Search"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setLoggedInUser] = useState("")
+
+  const setUser = (isUser) => {
+    setLoggedInUser(isUser)
+  }
 
   const setAuth = (isAuth) => {
     console.log("we should be rerendering ...");
@@ -42,15 +47,15 @@ function App() {
         <Switch>
               
             <Route exact path="/"><Main/></Route>
-            <Route path="/registerPro" component={RegisterPro} />
+            <Route path="/registerPro" component={RegisterPro} setUser={setUser}/>
             <Route path="/search" component={Search} />
             <Route path="/saved" component={Saved} />
             <Route path="/searchpros" component={SearchPros} />
              <Route path="/sign-in">
-                  {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth}/>}
+                  {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth} setUser={setUser}/>}
             </Route> 
               <Route path="/sign-up" component={SignUp} >
-                {isLoggedIn ? <Redirect to="/registerPro"/> : <SignUp setAuth={setAuth}/>}
+                {isLoggedIn ? <Redirect to="/registerPro"/> : <SignUp setAuth={setAuth} setUser={setUser}/>}
             </Route>
         </Switch>
     </Router>

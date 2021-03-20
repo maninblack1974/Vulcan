@@ -56,7 +56,10 @@ class Login extends Component {
         //   success: true,
         //   // isLoggedIn: true,
         // });
+        console.log(res.data);
         this.props.setAuth(true);
+        this.props.setUser(res.data.id);
+        localStorage.setItem('user',res.data.id);
       } 
     });
   }
@@ -85,6 +88,7 @@ class Login extends Component {
     //   `Logged in successfully welcome ${res.profileObj.name}`
     // );
     this.props.setAuth(true);
+    
     refreshTokenSetup(res);
 
   };

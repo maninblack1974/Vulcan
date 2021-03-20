@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./style.css";
 
+
 export default class RegisterPro extends Component {
   constructor(props) {
     super(props);
@@ -16,13 +17,14 @@ export default class RegisterPro extends Component {
       servicePro_state: "",
       servicePro_zipCode: "",
       servicePro_profileImg: "",
+      UserId: window.localStorage.getItem('user')
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleFileChange = this.handleFileChange.bind(this);
   }
 
-
+   
   handleInputChange(event) {
     const formType = event.target.id;
     this.setState({
@@ -60,6 +62,7 @@ export default class RegisterPro extends Component {
       "servicePro_state": servicePro_state,
       "servicePro_zipCode": servicePro_zipCode,
       "servicePro_profileImg": servicePro_profileImg,
+      "UserId": this.state.UserId
       
     };
 

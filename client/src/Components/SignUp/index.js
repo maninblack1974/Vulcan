@@ -55,7 +55,27 @@ export default class SignUp extends Component {
           //   success: true,
           // });
           // console.log(this.state.success);
-          this.props.setAuth(true);
+        //   this.props.setAuth(true);
+        //   this.props.setUser(res.data.id);
+        // localStorage.setItem('user',res.data.id);
+        
+        axios.post("/api/login", formData).then((res) => {
+          console.log("*****LOGGED IN!******",res);
+          if (res.data) {
+            // this.setState({
+            //   success: true,
+            //   // isLoggedIn: true,
+            // });
+            localStorage.setItem('user',res.data.id);
+            console.log(res.data);
+            this.props.setAuth(true);
+            this.props.setUser(res.data.id);
+          } 
+        });
+
+
+
+
 
         }
       });
