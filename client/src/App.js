@@ -48,10 +48,11 @@ function App() {
         <Switch>
               
             <Route exact path="/"><Main/></Route>
-            <Route path="/registerPro" component={RegisterPro} setUser={setUser}/>
+            <Route path="/registerPro" component={RegisterPro} setUser={setUser} setAuth={setAuth}/>
             <Route path="/search" component={Search} />
             <Route path="/saved" component={Saved} />
-            <Route path="/update" component={UpdatePro} />
+            <Route path="/update" component={UpdatePro}
+            setUser={setUser}/>
             <Route path="/searchpros" component={SearchPros} />
              <Route path="/sign-in">
                   {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth} setUser={setUser}/>}

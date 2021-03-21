@@ -25,7 +25,7 @@ router.get("/getupdatepros", (req, res) => {
   db.servicePro
     .findAll({
       where: {
-        UserId: 10
+        UserId: 12
       }
     })
     .then((applications) => res.json(applications))
@@ -35,6 +35,8 @@ router.get("/getupdatepros", (req, res) => {
 router.put('/postupdatepros', (req, res) => {
   db.servicePro
   .update(
+   
+    
     {
       servicePro_companyName: req.body.servicePro_companyName,
       servicePro_url: req.body.servicePro_url,

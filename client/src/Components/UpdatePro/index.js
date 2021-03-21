@@ -3,19 +3,8 @@ import axios from "axios";
 import "./style.css";
 
 
-export default class RegisterPro extends Component {
-  // existingProfile = []
-  // onload() {
-  //   axios.get("/api/updatepros").then((res) => {
-  //     console.log("*****UPDATE-TEST******",res.data.[0]);
-  //     this.existingProfile.push(res.data.[0])
-  //     // if (res.data.success) {
-  //     //   this.setState({
-  //     //     success: true,
-  //     //   });
-
-  //   });
-  // }
+export default class UpdatePro extends Component {
+    
   
   constructor(props) {
     super(props);
@@ -30,7 +19,8 @@ export default class RegisterPro extends Component {
       servicePro_state: "",
       servicePro_zipCode: "",
       servicePro_profileImg: "",
-      UserId: window.localStorage.getItem('user')
+      UserId: window.localStorage.getItem('user'),
+      existingProfile: []
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -38,7 +28,16 @@ export default class RegisterPro extends Component {
   }
 
   
-  
+  // componentDidMount() {
+  //   axios.get("/api/getupdatepros").then((res) => {
+  //     console.log("*****UPDATE-TEST******",res.data);
+  //     for (var i = 0; i < res.data.length; i++) {
+  //       this.state.existingProfile.push(res.data[i])
+  //       }
+  //     console.log(this.state.existingProfile[0].servicePro_phone)
+  //     console.log(this.state.existingProfile)
+  //   });
+  // }
    
   handleInputChange(event) {
     const formType = event.target.id;
@@ -85,11 +84,11 @@ export default class RegisterPro extends Component {
     // console.log("****",formData);
     axios.put("/api/postupdatepros", formData).then((res) => {
       console.log("***********",res.data);
-      // if (res.data.success) {
-      //   this.setState({
-      //     success: true,
-      //   });
-      // }
+      if (res.data.success) {
+        this.setState({
+          success: true,
+        });
+      }
     });
   }
 
@@ -98,7 +97,7 @@ export default class RegisterPro extends Component {
     if (this.state.success) {
       result = (
         <div className="success-message">
-          Your application submission was a success!
+          Your profile was updated successfully!
         </div>
       );
     }
@@ -115,15 +114,13 @@ export default class RegisterPro extends Component {
   }
 
   render() {
-    // let compName = JSON.stringify(this.existingProfile.servicePro_companyName)
-    // console.log(this.existingProfile.servicePro_companyName)
     return (
       <form className="registration-form" onSubmit={this.handleFormSubmit}>
         <fieldset
           className="form-fields container"
           disabled={this.disableForm()}
         >
-          <ul className="form-container col-lg-6">
+          <ul className="form-container col-lg-6" >
             <li className="form-list-item">
               <label htmlFor="servicePro_companyName">COMPANY NAME</label>
               <input
@@ -131,9 +128,11 @@ export default class RegisterPro extends Component {
                 id="servicePro_companyName"
                 name="servicePro_companyName"
                 placeholder="Company Name"
+                // value={item[0].servicePro_companyName}
                 onChange={this.handleInputChange}
               />
             </li>
+            
             <li className="form-list-item">
               <label htmlFor="servicePro_url">WEBSITE</label>
               <input
@@ -144,6 +143,7 @@ export default class RegisterPro extends Component {
                 onChange={this.handleInputChange}
               />
             </li>
+             {/* {this.state.existingProfile.map(item => ( */}
             <li className="form-list-item">
               <label htmlFor="servicePro_phone">PHONE NUMBER</label>
               <input
@@ -151,9 +151,11 @@ export default class RegisterPro extends Component {
                 id="servicePro_phone"
                 name="servicePro_phone"
                 placeholder="Phone Number"
+                // value={item.test1}
                 onChange={this.handleInputChange}
               />
             </li>
+            {/* ))} */}
             <li className="form-list-item">
               <label htmlFor="servicePro_profileImg">PROFILE IMAGE</label>
               <input
