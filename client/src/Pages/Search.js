@@ -4,7 +4,7 @@ import { Container, Row, Col } from "../Components/Grid"
 import { FormBtn } from "../Components/Form"
 
 
-export default class SearchPros extends Component {
+class SearchPros extends Component {
   constructor(props) {
     super(props);
 
@@ -83,24 +83,25 @@ export default class SearchPros extends Component {
     return result;
   }
 
-  render() {
-    return (
-      <div className="registered-pros">
-        <div className="pros-search container">
-          <div className="search-bar">
-            <label htmlFor="search-bar">Search by Category</label>
-            <input
-              id="search-bar"
-              name="search-bar"
-              type="text"
-              placeholder={`Enter ${this.state.searchType}`}
-              onChange={this.handleInputChange}
-            />
-          </div>
+  render = () => (
+    console.log("**** client/src/Components/SearchPros"),
+    <div className="registered-pros">
+      <div className="pros-search container">
+        <div className="search-bar">
+          <label htmlFor="search-bar">Search by Category</label>
+          <input
+            id="search-bar"
+            name="search-bar"
+            type="text"
+            placeholder={`Enter ${this.state.searchType}`}
+            onChange={this.handleInputChange}
+          />
         </div>
-        <div className="caption">Searched Service Pros</div>
-        <div>{this.renderPros()}</div>
       </div>
-    );
-  }
+      <div className="caption">Searched Service Pros</div>
+      <div>{this.renderPros()}</div>
+    </div>
+  );
 }
+
+export default SearchPros;

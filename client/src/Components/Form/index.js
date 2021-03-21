@@ -1,15 +1,17 @@
 import React from "react";
 
-export function TextInput(props) {
+const TextInput = (props) => {
     return (
         <input {...props}/>
     )
-}
+};
 
-export function FormBtn(props) {
+const FormBtn = (props) => {
     return(
       <button {...props}>
         {props.children}
       </button>
     )
-}
+};
+
+export { TextInput, FormBtn };

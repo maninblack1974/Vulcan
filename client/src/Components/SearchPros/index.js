@@ -2,20 +2,17 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Container, Row, Col } from "../Grid"
 
-
-export default class SearchPros extends Component {
+class SearchPros extends Component {
+  
   constructor(props) {
     super(props);
-
     this.state = {
       searchValue: "servicePro_category",
       searchType: "Category",
       registeredPros: [],
       userInput: "",
     };
-
     //bind events
-    
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
   }
@@ -89,24 +86,25 @@ export default class SearchPros extends Component {
     return result;
   }
 
-  render() {
-    return (
-      <div className="registered-pros">
-        <div className="pros-search container">
-          <div className="search-bar">
-            <label htmlFor="search-bar">Search</label>
-            <input
-              id="search-bar"
-              name="search-bar"
-              type="text"
-              placeholder={`Enter ${this.state.searchType}`}
-              onChange={this.handleInputChange}
-            />
-          </div>
+  render = () => (
+    console.log("**** client/src/Components/SearchPros"),
+    <div className="registered-pros">
+      <div className="pros-search container">
+        <div className="search-bar">
+          <label htmlFor="search-bar">Search</label>
+          <input
+            id="search-bar"
+            name="search-bar"
+            type="text"
+            placeholder={`Enter ${this.state.searchType}`}
+            onChange={this.handleInputChange}
+          />
         </div>
-        <div className="caption">Searched Service Pros</div>
-        <div>{this.renderPros()}</div>
       </div>
-    );
-  }
+      <div className="caption">Searched Service Pros</div>
+      <div>{this.renderPros()}</div>
+    </div>
+  );
 }
+
+export default SearchPros;

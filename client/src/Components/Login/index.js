@@ -96,64 +96,63 @@ class Login extends Component {
     );
   };
  
-    render() {
-      return (
-      <div className="container-sm">
+  render = () => (
+    console.log("**** client/src/Components/Login"),
+    <div className="container-sm">
       <form onSubmit={this.handleFormSubmit}>
-          <fieldset
-            className="form-fields container"
-            disabled={this.disableForm()}>
-            <div className="form-group">
-              <label>Email</label>
-                <input 
-                type="email" 
-                className="form-control" 
-                placeholder="Enter email"
-                id="email"
-                name="email"
-                placeholder="Email"
-                onChange={this.handleInputChange} />
-            </div>
-            <div className="form-group">
-              <label>Password</label>
-                <input 
-                type="password" 
-                className="form-control" 
-                placeholder="Enter email"
-                id="password"
-                name="password"
-                placeholder="Password"
-                onChange={this.handleInputChange} />
-            </div>
-              <button type="submit" className="btn btn-primary btn-block" value="Submit">Sign In</button>
-              {this.renderSuccessMessage()}
-              <p className="forgot-password text-right">
-              <a href="/sign-up">New? Create an account</a>
-              <br></br>
-              <a href="/sign-up">Forgot password</a>
-              </p>
-      <p>OR</p>
-      <div>
-        <GoogleLogin
-          clientId={clientId}
-          buttonText="Login with Google"
-          onSuccess={this.onSuccess}
-          onFailure={this.onFailure}
-          cookiePolicy={'single_host_origin'}
-          style={{ marginTop: '100px' }}
-          isSignedIn={true}
+        <fieldset
+          className="form-fields container"
+          disabled={this.disableForm()}>
+          <div className="form-group">
+            <label>Email</label>
+            <input 
+              type="email" 
+              className="form-control" 
+              placeholder="Enter email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              onChange={this.handleInputChange} />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input 
+              type="password" 
+              className="form-control" 
+              placeholder="Enter email"
+              id="password"
+              name="password"
+              placeholder="Password"
+              onChange={this.handleInputChange} />
+          </div>
+          <button type="submit" className="btn btn-primary btn-block" value="Submit">Sign In</button>
+          {this.renderSuccessMessage()}
+          <p className="forgot-password text-right">
+            <a href="/sign-up">New? Create an account</a>
+            <br></br>
+            <a href="/sign-up">Forgot password</a>
+          </p>
+          <p>OR</p>
+          <div>
+            <GoogleLogin
+              clientId={clientId}
+              buttonText="Login with Google"
+              onSuccess={this.onSuccess}
+              onFailure={this.onFailure}
+              cookiePolicy={'single_host_origin'}
+              style={{ marginTop: '100px' }}
+              isSignedIn={true}
           
           // uxMode="redirect"
           // redirectURI="http://localhost:3000"
-        />
-      </div>
-      </fieldset>
+            />
+          </div>
+        </fieldset>
       </form>
-      </div>
-    );
-  } 
+    </div>
+  ); 
 }
 
 //Login.contextType = AuthContext
 
-export default Login
+export default Login;

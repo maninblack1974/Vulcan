@@ -1,15 +1,15 @@
 
 import React from "react";
 
-export function Container({ classes, children }) {
+const Container = ({ classes, children }) => {
     return <div className={classes ? `container-fluid ${classes}` : `container-fluid`}>{children}</div>
 }
 
-export function Row({ classes, children }) {
+const Row = ({ classes, children }) => {
     return <div className={classes ? `row ${classes}` : `row`}>{children}</div>
-}
+};
 
-export function Col({ size, classes, children }) {
+const Col = ({ size, classes, children }) => {
     return (
         <div
             className={classes ? `${size
@@ -23,4 +23,6 @@ export function Col({ size, classes, children }) {
             {children}
         </div>
     )
-}
+};
+
+export { Container, Row, Col };
