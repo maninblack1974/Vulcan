@@ -10,6 +10,7 @@ import GuestHeader from './Components/GuestHeader';
 import React, {Component, useState, useEffect} from "react";
 import Saved from "../src/Pages/Saved"
 import Search from "../src/Pages/Search"
+import UpdatePro from "../src/Components/UpdatePro"
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
             <Route path="/registerPro" component={RegisterPro} setUser={setUser}/>
             <Route path="/search" component={Search} />
             <Route path="/saved" component={Saved} />
+            <Route path="/update" component={UpdatePro} />
             <Route path="/searchpros" component={SearchPros} />
              <Route path="/sign-in">
                   {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth} setUser={setUser}/>}

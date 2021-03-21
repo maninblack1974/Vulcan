@@ -21,6 +21,42 @@ router.get("/registerpros", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
+router.get("/getupdatepros", (req, res) => {
+  db.servicePro
+    .findAll({
+      where: {
+        UserId: 10
+      }
+    })
+    .then((applications) => res.json(applications))
+    .catch((err) => res.status(500).json(err));
+});
+
+// router.put("/postupdatepros", (req, res) => {
+//   db.servicePro
+//     .findAll({
+//       where: {
+//         UserId: 3
+//       }
+//     })
+//     .then((applications) => res.json(applications))
+//     .catch((err) => res.status(500).json(err));
+// });
+
+router.put('/postupdatepros', (req, res) => {
+  db.servicePro
+  .update(
+    {
+      servicePro_companyName: req.body.servicePro_companyName
+    },
+    {
+      where: {
+        id: 3
+      },
+    }
+  ).then((servicePro) => res.json(servicePro));
+});
+
 router.post("/registerpros", (req, res) => {
     console.log("Post Triggered", req.body);
     db.servicePro
