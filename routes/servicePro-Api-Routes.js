@@ -32,26 +32,24 @@ router.get("/getupdatepros", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
-// router.put("/postupdatepros", (req, res) => {
-//   db.servicePro
-//     .findAll({
-//       where: {
-//         UserId: 3
-//       }
-//     })
-//     .then((applications) => res.json(applications))
-//     .catch((err) => res.status(500).json(err));
-// });
-
 router.put('/postupdatepros', (req, res) => {
   db.servicePro
   .update(
     {
-      servicePro_companyName: req.body.servicePro_companyName
+      servicePro_companyName: req.body.servicePro_companyName,
+      servicePro_url: req.body.servicePro_url,
+      servicePro_phone: req.body.servicePro_phone,
+      servicePro_category: req.body.servicePro_category,
+      servicePro_address: req.body.servicePro_address,
+      servicePro_city: req.body.servicePro_city,
+      servicePro_state: req.body.servicePro_state,
+      servicePro_zipCode: req.body.servicePro_zipCode,
+      servicePro_profileImg: req.body.servicePro_profileImg
+
     },
     {
       where: {
-        id: 3
+      UserId: req.body.UserId
       },
     }
   ).then((servicePro) => res.json(servicePro));

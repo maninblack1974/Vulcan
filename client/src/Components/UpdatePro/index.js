@@ -82,15 +82,14 @@ export default class RegisterPro extends Component {
     };
 
 
-    console.log("****",formData);
-
-    axios.post("/api/registerpros", formData).then((res) => {
+    // console.log("****",formData);
+    axios.put("/api/postupdatepros", formData).then((res) => {
       console.log("***********",res.data);
-      if (res.data.success) {
-        this.setState({
-          success: true,
-        });
-      }
+      // if (res.data.success) {
+      //   this.setState({
+      //     success: true,
+      //   });
+      // }
     });
   }
 
