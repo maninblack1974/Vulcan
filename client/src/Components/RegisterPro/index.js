@@ -19,7 +19,7 @@ export default class RegisterPro extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.handleFileUpload = this.handleFileUpload.bind(this);
+    // this.handleFileUpload = this.handleFileUpload.bind(this);
   }
 
 
@@ -30,17 +30,22 @@ export default class RegisterPro extends Component {
     });
   }
 
-  handleFileUpload(event) {
-    const myWidget = cloudinary.createUploadWidget({
-      cloudName: 'august-innovations-inc', 
-      uploadPreset: 'uz3n96ci'}, (error, result) => { 
-        if (!error && result && result.event === "success") { 
-          myWidget.open();
-          console.log('Done! Here is the image info: ', result.info); 
-        }
-      }
-    )
-  }
+  openWidget = () => {
+    // create the widget
+    cloudinary.createUploadWidget(
+      {
+        cloudName: 'august-innovations-inc',
+        uploadPreset: 'uz3n96ci',
+      },
+      (error, result) => {
+        this.setState({
+          imageUrl: result.info.secure_url,
+          imageAlt: `An image of ${result.info.original_filename}`
+        })
+      },
+    ).open();
+     // open up the widget after creation
+  };
 
   handleFormSubmit(event) {
     event.preventDefault();
@@ -104,6 +109,7 @@ export default class RegisterPro extends Component {
   }
 
   render() {
+    
     return (
       <form className="registration-form" onSubmit={this.handleFormSubmit}>
         <fieldset
@@ -141,10 +147,20 @@ export default class RegisterPro extends Component {
                 onChange={this.handleInputChange}
               />
             </li>
-            <li className="form-list-item">
+            {/* <li className="form-list-item">
               <label htmlFor="servicePro_profileImg">PROFILE IMAGE</label>
-              <button id="upload_widget servicePro_profileImg" className="cloudinary-button" onClick={this.handleFileUpload}>Upload files</button>
-            
+              <button type="button" className="btn widget-btn" onClick={this.openWidget}>Upload Photo</button>
+              </li> */}
+              <li className="form-list-item">
+              <label htmlFor="servicePro_profileImg">PROFILE IMAGE</label>
+              <button
+                type="button"
+                className="btn widget-btn"
+                id="servicePro_profileImg"
+                name="servicePro_profileImg"
+                placeholder="Image or Logo"
+                onClick={this.openWidget}
+              />
               </li>
             <li className="form-list-item">
               <label htmlFor="servicePro_category">CATEGORY</label>
