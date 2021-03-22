@@ -84,7 +84,7 @@ export default class UpdatePro extends Component {
     // console.log("****",formData);
     axios.put("/api/postupdatepros", formData).then((res) => {
       console.log("***********",res.data);
-      if (res.data.success) {
+      if (res.data) {
         this.setState({
           success: true,
         });
