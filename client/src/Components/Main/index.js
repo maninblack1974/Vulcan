@@ -67,7 +67,7 @@ export default class Main extends Component {
             <div className="card-body">
               <Row className="SearchResult row" id={servicePros.servicePro_companyName} key={servicePros._id}>
                 <Col size="2">
-                
+                <img src={servicePros.servicePro_profileImg} alt={servicePros.servicePro_profileImg} />
                 </Col>
                 <Col size="10" className="pl-2">
                   <h3 className="serviceProviderCompanyName">{servicePros.servicePro_companyName}</h3>

@@ -38,10 +38,11 @@ export default class RegisterPro extends Component {
         uploadPreset: 'uz3n96ci',
       },
       (error, result) => {
+        if (result.event === 'success') {
         this.setState({
           imageUrl: result.info.secure_url,
           imageAlt: `An image of ${result.info.original_filename}`
-        })
+        })}
       },
     ).open();
      // open up the widget after creation
@@ -58,7 +59,7 @@ export default class RegisterPro extends Component {
       servicePro_city,
       servicePro_state,
       servicePro_zipCode,
-      servicePro_profileImg,
+      imageUrl,
 
     } = this.state;
     const formData = {
@@ -70,7 +71,7 @@ export default class RegisterPro extends Component {
       "servicePro_city": servicePro_city,
       "servicePro_state": servicePro_state,
       "servicePro_zipCode": servicePro_zipCode,
-      "servicePro_profileImg": servicePro_profileImg,
+      "servicePro_profileImg": imageUrl,
       
     };
 
