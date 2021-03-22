@@ -14,6 +14,17 @@ router.get("/users", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
+router.post("/gusers", (req, res) => {
+  db.User
+    .findAll({
+      where: {
+        email: req.body.email
+      }
+    })
+    .then((applications) => res.json(applications))
+    .catch((err) => res.status(500).json(err));
+});
+
 router.get("/registerpros", (req, res) => {
   db.servicePro
     .findAll({})

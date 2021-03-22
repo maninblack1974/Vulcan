@@ -84,10 +84,24 @@ class Login extends Component {
 
   onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
-    // alert(
-    //   `Logged in successfully welcome ${res.profileObj.name}`
-    // );
-    this.props.setAuth(true);
+      const {
+        email,
+      } = this.state;
+      const formData = {
+        "email": res.profileObj.email,
+      };
+     console.log(formData)
+    
+    axios.post("/api/gusers", formData).then((res) => {
+      console.log("*****google-login-test!******",res.data);
+      localStorage.setItem('user',res.data[0].id);
+      this.props.setAuth(true);
+      
+    });
+ 
+
+
+    
     
     refreshTokenSetup(res);
 
