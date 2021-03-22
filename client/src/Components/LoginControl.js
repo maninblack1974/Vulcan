@@ -38,4 +38,4 @@ class LoginControl extends Component {
   }
 }
 
-export default LoginControl
+export default LoginControl;
