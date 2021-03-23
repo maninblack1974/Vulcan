@@ -178,8 +178,23 @@ export default class SignUp extends Component {
           //   success: true,
           // });
           // console.log(this.state.success);
-          this.props.setAuth(true);
-
+        //   this.props.setAuth(true);
+        //   this.props.setUser(res.data.id);
+        // localStorage.setItem('user',res.data.id);
+        
+        axios.post("/api/login", formData).then((res) => {
+          console.log("*****LOGGED IN!******",res);
+          if (res.data) {
+            // this.setState({
+            //   success: true,
+            //   // isLoggedIn: true,
+            // });
+            localStorage.setItem('user',res.data.id);
+            console.log(res.data);
+            this.props.setAuth(true);
+            this.props.setUser(res.data.id);
+          } 
+        });
         }
       });
     }
@@ -210,10 +225,52 @@ export default class SignUp extends Component {
       // alert(
       //   `Logged in successfully welcome ${res.profileObj.name}`
       // );
-
-      this.props.setAuth(true);
-
+      console.log(res.profileObj.email)
+      const {
+        firstName,
+        lastName,
+        email,
+        password,
   
+      } = this.state;
+      const formData = {
+        "firstName": res.profileObj.givenName,
+        "lastName": res.profileObj.familyName,
+        "email": res.profileObj.email,
+        "password": res.profileObj.givenName
+      };
+
+      axios.post("/api/sign-up", formData).then((res) => {
+        console.log("******SIGN-UP!*****",res);
+        if (res.data) {
+          // this.setState({
+          //   success: true,
+          // });
+          // console.log(this.state.success);
+        //   this.props.setAuth(true);
+        //   this.props.setUser(res.data.id);
+        // localStorage.setItem('user',res.data.id);
+        
+        axios.post("/api/login", formData).then((res) => {
+          console.log("*****LOGGED IN!******",res);
+          if (res.data) {
+            // this.setState({
+            //   success: true,
+            //   // isLoggedIn: true,
+            // });
+            localStorage.setItem('user',res.data.id);
+            console.log(res.data);
+            this.props.setAuth(true);
+            this.props.setUser(res.data.id);
+          } 
+        });
+        }
+      });
+
+
+
+
+      // this.props.setAuth(true);
       refreshTokenSetup(res);
   
     };

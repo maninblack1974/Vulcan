@@ -11,7 +11,7 @@ function UserHeader(props) {
         <nav className="my-2 my-md-0 me-md-3">
           {/* <Link className="btn btn-outline-primary" to="/sign-up">Sign-Up</Link>
           <Link className="btn btn-outline-primary" to="/sign-in">Login</Link> */}
-          <Link className="btn btn-outline-primary" to="/RegisterPro">Register Pro</Link>
+          <Link className="btn btn-outline-primary" to="/update">Profile</Link>
           <Logout/>
         </nav>
       </header>
