@@ -43,10 +43,10 @@ function App() {
   }
 
     return (
+
       <Router>
         {renderheader()}
         <Switch>
-              
             <Route exact path="/"><Main/></Route>
             <Route path="/registerPro" component={RegisterPro} setUser={setUser} setAuth={setAuth}/>
             <Route path="/search" component={Search} />

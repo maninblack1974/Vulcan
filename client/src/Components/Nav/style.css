@@ -1,0 +1,21 @@
+nav {
+    background-color: gray;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: gray
+}
+ a:hover {
+    text-decoration: underline;
+    color: gray
+}
+
+.navbar-brand {
+    font-size: 35px;
+}
+
+.nav-item {
+    font-size: 25px;
+}
