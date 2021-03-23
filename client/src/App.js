@@ -10,10 +10,16 @@ import GuestHeader from './Components/GuestHeader';
 import React, {Component, useState, useEffect} from "react";
 import Saved from "../src/Pages/Saved"
 import Search from "../src/Pages/Search"
+import UpdatePro from "../src/Components/UpdatePro"
 
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setLoggedInUser] = useState("")
+
+  const setUser = (isUser) => {
+    setLoggedInUser(isUser)
+  }
 
   const setAuth = (isAuth) => {
     console.log("we should be rerendering ...");
@@ -42,15 +48,17 @@ function App() {
         {renderheader()}
         <Switch>
             <Route exact path="/"><Main/></Route>
-            <Route path="/registerPro" component={RegisterPro} />
+            <Route path="/registerPro" component={RegisterPro} setUser={setUser} setAuth={setAuth}/>
             <Route path="/search" component={Search} />
             <Route path="/saved" component={Saved} />
+            <Route path="/update" component={UpdatePro}
+            setUser={setUser}/>
             <Route path="/searchpros" component={SearchPros} />
              <Route path="/sign-in">
-                  {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth}/>}
+                  {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth} setUser={setUser}/>}
             </Route> 
               <Route path="/sign-up" component={SignUp} >
-                {isLoggedIn ? <Redirect to="/registerPro"/> : <SignUp setAuth={setAuth}/>}
+                {isLoggedIn ? <Redirect to="/registerPro"/> : <SignUp setAuth={setAuth} setUser={setUser}/>}
             </Route>
         </Switch>
     </Router>

@@ -43,6 +43,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         }
     });
+
+    servicePro.associate = function(models) {
+        // We're saying that a Score should belong to an Author
+        // A Score can't be created without an Author due to the foreign key constraint
+        servicePro.belongsTo(models.User, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+    };
     
 
     // ServicePro.prototype.validPassword = function(servicePro_userPassword) {
