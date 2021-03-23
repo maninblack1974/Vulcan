@@ -47,13 +47,13 @@ function App() {
       <Router>
         {renderheader()}
         <Switch>
-            <Route exact path="/"><Main/></Route>
+            <Route exact path="/"><SearchPros/></Route>
             <Route path="/registerPro" component={RegisterPro} setUser={setUser} setAuth={setAuth}/>
-            <Route path="/search" component={Search} />
-            <Route path="/saved" component={Saved} />
+            {/* <Route path="/search" component={Search} />
+            <Route path="/saved" component={Saved} /> */}
             <Route path="/update" component={UpdatePro}
             setUser={setUser}/>
-            <Route path="/searchpros" component={SearchPros} />
+            {/* <Route path="/searchpros" component={SearchPros} /> */}
              <Route path="/sign-in">
                   {isLoggedIn ? <Redirect to="/"/> : <Login setAuth={setAuth} setUser={setUser}/>}
             </Route> 
