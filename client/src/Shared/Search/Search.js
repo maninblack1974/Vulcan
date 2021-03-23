@@ -16,21 +16,28 @@ const allServices = Object.keys(services).reduce(
 );
 
 const popularServices = [
-  'Alcohol Distributor',
-  'Apparel',
-  'Bar/Beer Cleaning',
-  'Electrican',
-  'Food Distributor',
-  'General Cleaning',
-  'Hood Cleaning',
-  'HVAC',
-  'Linens',
-  'Outdoor Heating',
-  'Pest Control',
-  'Plumber',
-  'Refrigeration',
-  'Table Booth Repair',
-  'Window Repair'
+  `Alcohol`,
+  `Apparel`,
+  `Beverages`,
+  `Construction`,
+  `Delivery`,
+  `Dining`,
+  `Electrical`,
+  `Entertainment`,
+  `Food`,
+  `Furniture`,
+  `General Cleaning`,
+  `Kitchen`,
+  `Linen`,
+  `Online Services`,
+  `Patio`,
+  `Pest Control`,
+  `Plumbing`,
+  `Printing`,
+  `Refrigeration`,
+  `Uniform`,
+  `Upholstery`,
+  `Windows`
 ];
 
 const StyledLink = styled(Link)`
