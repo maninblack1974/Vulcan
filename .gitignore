@@ -2,6 +2,16 @@
 .DS_Store
 .DS_Store?
 
+#Ignore Yarn Files
+yarn.lock
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
 # Logs
 logs
 *.log
