@@ -254,6 +254,8 @@ export default class UpdatePro extends Component {
     return (
       <ProInfo>
       <h1>Update Your Service</h1>
+      {this.state.existingProfile.map(item => (
+
       <form className="registration-form" onSubmit={this.handleFormSubmit}>
         {/* <fieldset
           className="form-fields container"
@@ -261,17 +263,16 @@ export default class UpdatePro extends Component {
         > */}
           {/* <ul className="form-container col-lg-6" > */}
             {/* <li className="form-list-item"> */}
-            {/* {this.state.existingProfile.map(item => ( */}
               <label htmlFor="servicePro_companyName">COMPANY NAME</label>
               <input
                 type="text"
                 id="servicePro_companyName"
                 name="servicePro_companyName"
                 placeholder="Company Name"
-                // defaultValue={item.servicePro_companyName}
+                defaultValue={item.servicePro_companyName}
                 onChange={this.handleInputChange}
               />
-              {/* ))} */}
+            
             {/* </li> */}
            
           {/* {this.state.existingProfile.map(item => ( */}
@@ -283,7 +284,7 @@ export default class UpdatePro extends Component {
                 id="servicePro_url"
                 name="servicePro_url"
                 placeholder="Website"
-                // defaultValue={item.servicePro_url}
+                defaultValue={item.servicePro_url}
                 onChange={this.handleInputChange}
               />
             {/* </li> */}
@@ -296,7 +297,7 @@ export default class UpdatePro extends Component {
                   id="servicePro_phone"
                   name="servicePro_phone"
                   placeholder="Phone Number"
-                  // defaultValue={item.servicePro_phone}
+                  defaultValue={item.servicePro_phone}
                   onChange={this.handleInputChange}
                 />
               {/* </li> */}
@@ -323,7 +324,7 @@ export default class UpdatePro extends Component {
                 type="text"
                 id="servicePro_category"
                 name="ServicePro_category"
-                // defaultValue={item.servicePro_category}
+                defaultValue={item.servicePro_category}
                 onChange={this.handleInputChange}
               >
                 <option defaultValue="">Choose...</option>
@@ -353,7 +354,7 @@ export default class UpdatePro extends Component {
                 id="servicePro_address"
                 name="servicePro_address"
                 placeholder="Address"
-                // defaultValue={item.servicePro_address}
+                defaultValue={item.servicePro_address}
                 onChange={this.handleInputChange}
               />
             {/* </li> */}
@@ -366,7 +367,7 @@ export default class UpdatePro extends Component {
                 id="servicePro_city"
                 name="servicePro_city"
                 placeholder="City"
-                // defaultValue={item.servicePro_city}
+                defaultValue={item.servicePro_city}
                 onChange={this.handleInputChange}
               />
             {/* </li> */}
@@ -378,7 +379,7 @@ export default class UpdatePro extends Component {
                 type="text"
                 id="servicePro_state"
                 name="ServicePro_state"
-                // defaultValue={item.servicePro_state}
+                defaultValue={item.servicePro_state}
                 onChange={this.handleInputChange}
               >
                 <option defaultValue="">Choose...</option>
@@ -446,7 +447,7 @@ export default class UpdatePro extends Component {
                 id="servicePro_zipCode"
                 name="servicePro_zipCode"
                 placeholder="Zip"
-                // defaultValue={item.servicePro_zipCode}
+                defaultValue={item.servicePro_zipCode}
                 onChange={this.handleInputChange}
               />
             {/* </li> */}
@@ -462,6 +463,7 @@ export default class UpdatePro extends Component {
           {/* </ul>
         </fieldset> */}
       </form>
+      ))}
       </ProInfo>
 
     )
