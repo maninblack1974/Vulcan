@@ -27,7 +27,7 @@ const LinkStyled = styled.li`
     list-style: none;
     margin: 0 12px;
     height: 100%;
-    display: ${({ title }) => (title === 'Home' ? 'none' : 'flex')};
+    display: ${({ title }) => (title === 'HOME' ? 'none' : 'flex')};
     padding: 0;
     align-items: center;
     border-bottom: 0 solid #e9eced;

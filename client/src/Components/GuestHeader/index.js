@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import LogoFull from '../../Shared/SVG/LogoFull';
 import NavLink from './NavLink';
 
 
@@ -67,7 +66,7 @@ const LogoFullStyledLink = styled.nav`
 const navLinks = [
   {
     to: '/',
-    title: 'HOME',
+    title: 'Home',
   },
   {
     to: '/sign-up',

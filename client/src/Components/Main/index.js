@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import Search from '../../Shared/Search/Search';
+
 
 const SearchForm = styled.div`
 margin: 0 auto 0 auto;
@@ -102,7 +104,7 @@ function Main() {
         <h1>Find a service provider.</h1>
         <form className="search">
         <label htmlFor="provider">Search for a service provider:</label>
-        <input
+        <Search
         />
         <button type="submit">Search</button>
     </form>
