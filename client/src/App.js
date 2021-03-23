@@ -37,10 +37,10 @@ function App() {
   }
 
     return (
+
       <Router>
         {renderheader()}
         <Switch>
-              
             <Route exact path="/"><Main/></Route>
             <Route path="/registerPro" component={RegisterPro} />
             <Route path="/search" component={Search} />

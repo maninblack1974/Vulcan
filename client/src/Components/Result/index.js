@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from '../Grid';
 import { FormBtn } from '../Form';
+import "./style.css";
 
 
 function SearchResult(props) {
