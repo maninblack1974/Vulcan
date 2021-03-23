@@ -145,6 +145,7 @@ export default class UpdatePro extends Component {
           disabled={this.disableForm()}
         >
           <ul className="form-container col-lg-6" >
+          {this.state.existingProfile.map(item => (
             <li className="form-list-item">
               <label htmlFor="servicePro_companyName">COMPANY NAME</label>
               <input
@@ -152,9 +153,12 @@ export default class UpdatePro extends Component {
                 id="servicePro_companyName"
                 name="servicePro_companyName"
                 placeholder="Company Name"
+                defaultValue={item.servicePro_companyName}
                 onChange={this.handleInputChange}
               />
             </li>
+            ))}
+          {this.state.existingProfile.map(item => (
 
             <li className="form-list-item">
               <label htmlFor="servicePro_url">WEBSITE</label>
@@ -163,9 +167,11 @@ export default class UpdatePro extends Component {
                 id="servicePro_url"
                 name="servicePro_url"
                 placeholder="Website"
+                defaultValue={item.servicePro_url}
                 onChange={this.handleInputChange}
               />
             </li>
+            ))}
             {this.state.existingProfile.map(item => (
               <li className="form-list-item">
                 <label htmlFor="servicePro_phone">PHONE NUMBER</label>
@@ -179,6 +185,8 @@ export default class UpdatePro extends Component {
                 />
               </li>
             ))}
+            {this.state.existingProfile.map(item => (
+
             <li className="form-list-item">
               <label htmlFor="servicePro_profileImg">PROFILE IMAGE</label>
               <input
@@ -186,15 +194,19 @@ export default class UpdatePro extends Component {
                 id="servicePro_profileImg"
                 name="servicePro_profileImg"
                 placeholder="Image or Logo"
+                defaultValue={item.servicePro_profileImg}
                 onChange={this.handleFileChange}
               />
             </li>
+            ))}
+            {this.state.existingProfile.map(item => (
             <li className="form-list-item">
               <label htmlFor="servicePro_category">CATEGORY</label>
               <select
                 type="text"
                 id="servicePro_category"
                 name="ServicePro_category"
+                defaultValue={item.servicePro_category}
                 onChange={this.handleInputChange}
               >
                 <option defaultValue="">Choose...</option>
@@ -215,6 +227,8 @@ export default class UpdatePro extends Component {
                 <option value="Table Booth Repair">Table Booth Repair</option>
               </select>
             </li>
+            ))}
+            {this.state.existingProfile.map(item => (
             <li className="form-list-item">
               <label htmlFor="servicePro_address">ADDRESS</label>
               <input
@@ -222,9 +236,12 @@ export default class UpdatePro extends Component {
                 id="servicePro_address"
                 name="servicePro_address"
                 placeholder="Address"
+                defaultValue={item.servicePro_address}
                 onChange={this.handleInputChange}
               />
             </li>
+            ))}
+            {this.state.existingProfile.map(item => (
             <li className="form-list-item">
               <label htmlFor="servicePro_city">City</label>
               <input
@@ -232,15 +249,19 @@ export default class UpdatePro extends Component {
                 id="servicePro_city"
                 name="servicePro_city"
                 placeholder="City"
+                defaultValue={item.servicePro_city}
                 onChange={this.handleInputChange}
               />
             </li>
+            ))}
+            {this.state.existingProfile.map(item => (
             <li className="form-list-item">
               <label htmlFor="servicePro_state">STATE</label>
               <select
                 type="text"
                 id="servicePro_state"
                 name="ServicePro_state"
+                defaultValue={item.servicePro_state}
                 onChange={this.handleInputChange}
               >
                 <option defaultValue="">Choose...</option>
@@ -297,6 +318,8 @@ export default class UpdatePro extends Component {
                 <option value="WY">Wyoming</option>
               </select>
             </li>
+            ))}
+            {this.state.existingProfile.map(item => (
             <li className="form-list-item">
               <label className="form-zip-label" htmlFor="servicePro_zipCode">
                 ZIP
@@ -306,9 +329,11 @@ export default class UpdatePro extends Component {
                 id="servicePro_zipCode"
                 name="servicePro_zipCode"
                 placeholder="Zip"
+                defaultValue={item.servicePro_zipCode}
                 onChange={this.handleInputChange}
               />
             </li>
+            ))}
             <li className="form-list-item">
               <input
                 className="form-submit-btn"
