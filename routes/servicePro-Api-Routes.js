@@ -32,11 +32,11 @@ router.get("/registerpros", (req, res) => {
     .catch((err) => res.status(500).json(err));
 });
 
-router.get("/getupdatepros", (req, res) => {
+router.post("/getupdatepros", (req, res) => {
   db.servicePro
     .findAll({
       where: {
-        UserId: 12
+        UserId: req.body.UserId
       }
     })
     .then((applications) => res.json(applications))
